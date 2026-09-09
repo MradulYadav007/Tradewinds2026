@@ -1,0 +1,30 @@
+[
+  {
+    "id": "inauguration",
+    "date": "12 SEP",
+    "time": "09:00 AM",
+    "title": "INAUGURATION",
+    "venue": "AUDITORIUM"
+  },
+  {
+    "id": "case-competition",
+    "date": "12 SEP",
+    "time": "11:00 AM",
+    "title": "CASE COMPETITION",
+    "venue": "HALL A"
+  },
+  {
+    "id": "workshop",
+    "date": "13 SEP",
+    "time": "10:00 AM",
+    "title": "WORKSHOP",
+    "venue": "HALL B"
+  },
+  {
+    "id": "panel",
+    "date": "14 SEP",
+    "time": "02:00 PM",
+    "title": "PANEL DISCUSSION",
+    "venue": "AUDITORIUM"
+  }
+]

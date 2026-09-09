@@ -1,0 +1,17 @@
+[
+  {
+    "id": "deadline",
+    "question": "When does registration close?",
+    "answer": "Registration closes at midnight on 10 September 2026."
+  },
+  {
+    "id": "eligibility",
+    "question": "Who can participate?",
+    "answer": "IGNITE is open to undergraduate and postgraduate students."
+  },
+  {
+    "id": "multiple-events",
+    "question": "Can I join more than one event?",
+    "answer": "Yes, as long as event timings do not overlap."
+  }
+]

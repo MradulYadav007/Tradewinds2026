@@ -1,0 +1,26 @@
+[
+  {
+    "id": "business-club",
+    "name": "BUSINESS CLUB",
+    "description": "Case Conquest",
+    "logo": null
+  },
+  {
+    "id": "consulting-society",
+    "name": "CONSULTING SOCIETY",
+    "description": "Event details to be announced.",
+    "logo": null
+  },
+  {
+    "id": "tech-circle",
+    "name": "TECH CIRCLE",
+    "description": "Event details to be announced.",
+    "logo": null
+  },
+  {
+    "id": "cultural-council",
+    "name": "CULTURAL COUNCIL",
+    "description": "The Culture Code",
+    "logo": null
+  }
+]

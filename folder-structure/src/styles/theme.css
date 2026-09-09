@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../assets/instrument-sans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Big Shoulders";
+  src: url("../assets/big-shoulders-900.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* Change these tokens to restyle every page. Components use semantic utilities. */
+@theme {
+  --color-canvas: #f7f4ec;
+  --color-surface: #f1eee7;
+  --color-ink: #111b31;
+  --color-muted: #606775;
+  --color-brand: #b89343;
+  --color-brand-hover: #98732b;
+  --color-on-brand: #ffffff;
+  --color-line: #d4d2cc;
+  --color-poster: #e2e7ed;
+  --font-sans: "Instrument Sans", Arial, sans-serif;
+  --font-display: "Big Shoulders", Impact, sans-serif;
+  --radius-button: 0.25rem;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 bg-canvas font-sans text-ink antialiased; }
+  button, a, input, select { -webkit-tap-highlight-color: transparent; }
+  button, summary { cursor: pointer; }
+  :focus-visible { @apply outline-2 outline-offset-4 outline-brand; }
+  section[id], footer[id] { scroll-margin-top: 2rem; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
+
+@layer components {
+  .page-shell { @apply mx-auto w-full max-w-[1180px] px-6 md:px-8; }
+  .section-space { @apply py-16 md:py-24; }
+  .eyebrow { @apply text-sm font-semibold tracking-widest text-brand uppercase; }
+  .display-title { @apply font-display text-5xl leading-none font-black tracking-tight uppercase md:text-6xl; }
+  .button-primary { @apply inline-flex items-center justify-center rounded-button bg-brand px-5 py-3 text-sm font-semibold tracking-wide text-on-brand uppercase transition-colors hover:bg-brand-hover; }
+  .text-link { @apply text-sm font-semibold tracking-wide uppercase underline-offset-4 hover:underline; }
+  .input-field { @apply min-h-12 w-full min-w-0 rounded-button border border-line bg-canvas px-3 py-3 text-base font-normal text-ink; }
+}

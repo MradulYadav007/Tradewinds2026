@@ -1,0 +1,135 @@
+{
+  "name": "TRADE WINDS",
+  "year": 2026,
+  "tagline": "IIFT Delhi’s flagship annual business conclave",
+  "description": "Three days of restless ideas, live competition and the people building what’s next. Find your arena, make your case, and leave a mark.",
+  "theme": "Reglobalization: Navigating Trade in a Changing World",
+  "venue": "IIFT, DELHI",
+  "heroDates": "9TH – 11TH OCT 2026",
+  "posterDates": "12–14",
+  "posterMonth": "SEPTEMBER",
+  "posterTagline": "TRADE · BUSINESS · REGLOBALIZATION",
+  "dateNotice": "The homepage hero lists 9–11 October. The schedule and event cards list 12–14 September. Confirm the dates with the organizers before making plans.",
+  "logo": {
+    "type": "image",
+    "src": "/media/tradewinds-logo.png",
+    "alt": "Trade Winds logo",
+    "width": 250,
+    "height": 250
+  },
+  "heroMedia": null,
+  "countdown": {
+    "label": "REGISTRATION CLOSES IN",
+    "target": null,
+    "display": "08 : 14 : 36 : 22",
+    "closedLabel": "REGISTRATION CLOSED"
+  },
+  "navigation": [
+    {
+      "label": "ABOUT",
+      "href": "/#about"
+    },
+    {
+      "label": "EVENTS",
+      "href": "/viewallevents"
+    },
+    {
+      "label": "CALENDAR",
+      "href": "/calendar"
+    },
+    {
+      "label": "CLUBS",
+      "href": "/viewallclubs"
+    },
+    {
+      "label": "SPEAKERS",
+      "href": "/viewallspeakers"
+    },
+    {
+      "label": "SPONSORS",
+      "href": "/#sponsors"
+    }
+  ],
+  "benefits": [
+    {
+      "title": "COMPETITIONS",
+      "description": "Test sharp thinking under pressure across business, culture, sport and tech."
+    },
+    {
+      "title": "WORKSHOPS",
+      "description": "Leave with frameworks, feedback and tools you can use beyond the campus."
+    },
+    {
+      "title": "THE RIGHT ROOM",
+      "description": "Meet operators, speakers, teams and future collaborators who move with intent."
+    }
+  ],
+  "sections": {
+    "benefits": {
+      "eyebrow": "WHY TRADEWINDS?",
+      "title": "MORE THAN A FESTIVAL."
+    },
+    "events": {
+      "eyebrow": "FEATURED EVENTS",
+      "title": "CHOOSE YOUR ARENA."
+    },
+    "schedule": {
+      "eyebrow": "SCHEDULE PREVIEW",
+      "title": "YOUR NEXT THREE DAYS."
+    },
+    "speakers": {
+      "eyebrow": "SPEAKERS & PANEL",
+      "title": "MEET THE PEOPLE MOVING IDEAS."
+    },
+    "clubs": {
+      "eyebrow": "PARTICIPATING CLUBS",
+      "title": "FIND YOUR PEOPLE."
+    },
+    "sponsors": {
+      "eyebrow": "OUR PARTNERS",
+      "title": "POWERING IGNITE 2026."
+    },
+    "faq": {
+      "eyebrow": "IMPORTANT INFORMATION",
+      "title": "THE DETAILS, COVERED."
+    }
+  },
+  "finalCta": {
+    "title": "READY TO PARTICIPATE?",
+    "description": "The next move is yours. Secure your place at IGNITE 2026."
+  },
+  "footer": {
+    "brand": "TRADEWINDS ’26",
+    "description": "Delhi’s flagship Business Conclave. 12–14 September 2026 · Delhi Campus."
+  },
+  "registration": {
+    "externalUrl": "",
+    "title": "THE NEXT MOVE IS YOURS.",
+    "description": "Choose your arena and prepare your registration details.",
+    "draftNotice": "Preview form: your details stay in this browser until you download them. This page is not connected to the organizers and does not submit a registration.",
+    "eligibility": "The published FAQ welcomes undergraduate and postgraduate students. You can join more than one event when timings do not overlap."
+  },
+  "pages": {
+    "events": {
+      "eyebrow": "FIND YOUR ARENA",
+      "title": "CHOOSE YOUR ARENA.",
+      "description": "Test sharp thinking under pressure. Explore the events featured at Trade Winds and find your next challenge."
+    },
+    "speakers": {
+      "eyebrow": "SPEAKERS & PANEL",
+      "title": "MEET THE PEOPLE MOVING IDEAS.",
+      "description": "Meet the operators, speakers and future collaborators bringing their perspectives to Trade Winds.",
+      "notice": "Aarav Mehta is the speaker currently named on the published homepage. Further speaker profiles and session details have not been announced."
+    },
+    "clubs": {
+      "eyebrow": "PARTICIPATING CLUBS",
+      "title": "FIND YOUR PEOPLE.",
+      "description": "Explore the clubs and societies participating in Trade Winds."
+    },
+    "calendar": {
+      "eyebrow": "SCHEDULE",
+      "title": "YOUR NEXT THREE DAYS.",
+      "description": "The schedule preview published on the Trade Winds homepage."
+    }
+  }
+}

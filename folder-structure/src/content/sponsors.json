@@ -1,0 +1,27 @@
+[
+  {
+    "id": "title",
+    "tier": "TITLE SPONSOR",
+    "names": [
+      "ORBIT CAPITAL"
+    ]
+  },
+  {
+    "id": "gold",
+    "tier": "GOLD",
+    "names": [
+      "AURORA",
+      "GRIDLINE",
+      "VANTAGE"
+    ]
+  },
+  {
+    "id": "silver",
+    "tier": "SILVER",
+    "names": [
+      "NORTHSTAR",
+      "KITE",
+      "ATLAS"
+    ]
+  }
+]

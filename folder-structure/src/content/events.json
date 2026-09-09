@@ -1,0 +1,47 @@
+[
+  {
+    "id": "product-sprint",
+    "name": "PRODUCT SPRINT",
+    "category": "BUSINESS",
+    "organizer": "Innovation Cell",
+    "clubId": null,
+    "date": "13 SEP",
+    "time": "01:30 PM",
+    "venue": "AUDITORIUM",
+    "format": "TEAM EVENT",
+    "status": "OPEN",
+    "featured": true,
+    "image": null,
+    "registrationUrl": ""
+  },
+  {
+    "id": "culture-code",
+    "name": "THE CULTURE CODE",
+    "category": "BUSINESS",
+    "organizer": "Cultural Council",
+    "clubId": "cultural-council",
+    "date": "14 SEP",
+    "time": "04:00 PM",
+    "venue": "AUDITORIUM",
+    "format": "TEAM EVENT",
+    "status": "OPEN",
+    "featured": true,
+    "image": null,
+    "registrationUrl": ""
+  },
+  {
+    "id": "case-conquest",
+    "name": "CASE CONQUEST",
+    "category": "BUSINESS",
+    "organizer": "Business Club",
+    "clubId": "business-club",
+    "date": "13 SEP",
+    "time": "10:00 AM",
+    "venue": "AUDITORIUM",
+    "format": "TEAM EVENT",
+    "status": "OPEN",
+    "featured": true,
+    "image": null,
+    "registrationUrl": ""
+  }
+]

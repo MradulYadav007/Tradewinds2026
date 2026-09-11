@@ -1,7 +1,7 @@
 import type { MediaAsset } from '../content/types';
 import { mediaUrl } from '../lib/media';
 
-export function Media({ media, className = '', priority = false }: { media: MediaAsset; className?: string; priority?: boolean }) {
+export function Media({ media, className = '', priority = false }: { media: any; className?: string; priority?: boolean }) {
   if (media.type === 'video') {
     return <video className={className} src={mediaUrl(media.src)} poster={media.poster ? mediaUrl(media.poster) : undefined} width={media.width} height={media.height} controls playsInline preload="metadata" aria-label={media.alt} />;
   }

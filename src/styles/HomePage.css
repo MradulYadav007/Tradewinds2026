@@ -1,0 +1,87 @@
+.header-tagline{
+    margin-top: 10px;
+    text-align: center;
+}
+.header-theme{
+    text-align: center;
+}
+.header-buttons-group{
+    justify-content: center;
+}
+.hero-mark {
+  position: relative;
+  aspect-ratio: 1200 / 250;
+  overflow: hidden;
+  background: transparent;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent;
+  filter: grayscale(80%);
+}
+
+.hero-mark svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.hero-mark .knock {
+  fill: #e2e7ed;
+  background: transparent;
+}
+
+.hero-mark text {
+  font-family: "Bricolage Grotesque", "Arial Black", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: transparent;
+}
+
+.mark-stack {
+  display: none;
+  background: transparent;
+}
+
+@media (max-width: 700px) {
+  .hero-mark {
+    aspect-ratio: 620 / 430;
+    background: transparent;
+  }
+
+  .mark-wide {
+    display: none;
+    background: transparent;
+  }
+
+  .mark-stack {
+    display: block;
+    background: transparent;
+  }
+}
+
+@keyframes event-carousel {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+.animate-event-carousel {
+  width: max-content;
+  animation: event-carousel 25s linear infinite;
+}
+
+.animate-event-carousel:hover {
+  animation-play-state: paused;
+}   

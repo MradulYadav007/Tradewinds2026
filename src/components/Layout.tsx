@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { site } from '../content';
 import { registrationHref } from '../lib/registration';
 import { Media } from './Media';
+import { Countdown } from './Countdown';
 
 export function ActionLink({ href, children, className = 'button-primary' }: { href: string; children: ReactNode; className?: string }) {
   return href.startsWith('https://') ? <a href={href} className={className}>{children}</a> : <Link to={href} className={className}>{children}</Link>;
@@ -12,6 +13,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   return <header className="page-shell">
+     {/* Countdown */}
+          <Countdown />
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-canvas focus:p-4">Skip to content</a>
     <div className="relative flex min-h-28 flex-wrap items-center justify-between gap-5 border-b border-line py-5 xl:min-h-[136px]">
       <Link to="/" className="flex items-center gap-4 md:gap-9" aria-label={`${site.name} home`}>

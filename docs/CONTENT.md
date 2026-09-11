@@ -35,8 +35,8 @@ Upload `speaker-v1.webp` to `public/media/`. Replace a speaker's `image: null` w
 ```json
 "image": {
   "type": "image",
-  "src": "/media/speaker-v1.webp",
-  "alt": "Aarav Mehta",
+  "src": "/media/Mradul_Yadav.jpeg",
+  "alt": "Mradul Yadav",
   "width": 800,
   "height": 880
 }
@@ -83,7 +83,7 @@ Replace the example URL with your actual public media URL, and upload the poster
 
 ## Confirm dates in one editing pass
 
-The reference mixes September and October dates. Update the hero date, poster date/month, footer description, all event dates, the schedule, and the FAQ deadline together. Clear `dateNotice` once resolved. These fields remain separate because they use different display formats.
+The reference has October dates. Update the hero date, poster date/month, footer description, all event dates, the schedule, and the FAQ deadline together. Clear `dateNotice` once resolved. These fields remain separate because they use different display formats.
 
 For a live countdown, change:
 

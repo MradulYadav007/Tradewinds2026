@@ -1,10 +1,80 @@
 [
   {
-    "id": "aarav-mehta",
-    "name": "AARAV MEHTA",
+    "id": "mradul-yadav",
+    "name": "MRADUL YADAV",
     "role": "Founder, Loopline",
     "bio": "",
-    "image": null,
+    "image": "/media/Mradul_Yadav.jpeg",
+    "description": "Founder of Loopline. Add the speaker's complete biography or description here.",
+    "website": "https://www.linkedin.com/in/mradulyadaviift/",
+    "src": "/media/Mradul_Yadav.jpeg",
+    "type": "image",
+    "alt": "Mradul Yadav",
+    "featured": true
+  },
+  {
+    "id": "mradul-yadav",
+    "name": "MRADUL YADAV",
+    "role": "Founder, Loopline",
+    "bio": "",
+    "image": "/media/Mradul_Yadav.jpeg",
+    "description": "Founder of Loopline. Add the speaker's complete biography or description here.",
+    "website": "https://www.linkedin.com/in/mradulyadaviift/",
+    "src": "/media/Mradul_Yadav.jpeg",
+    "type": "image",
+    "alt": "Mradul Yadav",
+    "featured": true
+  },
+  {
+    "id": "mradul-yadav",
+    "name": "MRADUL YADAV",
+    "role": "Founder, Loopline",
+    "bio": "",
+    "image": "/media/Mradul_Yadav.jpeg",
+    "description": "Founder of Loopline. Add the speaker's complete biography or description here.",
+    "website": "https://www.linkedin.com/in/mradulyadaviift/",
+    "src": "/media/Mradul_Yadav.jpeg",
+    "type": "image",
+    "alt": "Mradul Yadav",
+    "featured": true
+  },
+  {
+    "id": "mradul-yadav",
+    "name": "MRADUL YADAV",
+    "role": "Founder, Loopline",
+    "bio": "",
+    "image": "/media/Mradul_Yadav.jpeg",
+    "description": "Founder of Loopline. Add the speaker's complete biography or description here.",
+    "website": "https://www.linkedin.com/in/mradulyadaviift/",
+    "src": "/media/Mradul_Yadav.jpeg",
+    "type": "image",
+    "alt": "Mradul Yadav",
+    "featured": true
+  },
+  {
+    "id": "mradul-yadav",
+    "name": "MRADUL YADAV",
+    "role": "Founder, Loopline",
+    "bio": "",
+    "image": "/media/Mradul_Yadav.jpeg",
+    "description": "Founder of Loopline. Add the speaker's complete biography or description here.",
+    "website": "https://www.linkedin.com/in/mradulyadaviift/",
+    "src": "/media/Mradul_Yadav.jpeg",
+    "type": "image",
+    "alt": "Mradul Yadav",
+    "featured": true
+  },
+  {
+    "id": "mradul-yadav",
+    "name": "MRADUL YADAV",
+    "role": "Founder, Loopline",
+    "bio": "",
+    "image": "/media/Mradul_Yadav.jpeg",
+    "description": "Founder of Loopline. Add the speaker's complete biography or description here.",
+    "website": "https://www.linkedin.com/in/mradulyadaviift/",
+    "src": "/media/Mradul_Yadav.jpeg",
+    "type": "image",
+    "alt": "Mradul Yadav",
     "featured": true
   }
 ]

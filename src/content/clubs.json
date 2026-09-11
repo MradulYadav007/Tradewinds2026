@@ -1,26 +1,62 @@
 [
   {
-    "id": "business-club",
-    "name": "BUSINESS CLUB",
-    "description": "Case Conquest",
+    "id": "industry-cell",
+    "name": "INDUSTRY CELL",
+    "description": "Innoquest",
     "logo": null
   },
   {
-    "id": "consulting-society",
-    "name": "CONSULTING SOCIETY",
-    "description": "Event details to be announced.",
+    "id": "opsigma",
+    "name": "OPSIGMA",
+    "description": "Opsmagnum",
     "logo": null
   },
   {
-    "id": "tech-circle",
-    "name": "TECH CIRCLE",
-    "description": "Event details to be announced.",
+    "id": "synergia",
+    "name": "SYNERGIA",
+    "description": "Manthan",
     "logo": null
   },
   {
-    "id": "cultural-council",
-    "name": "CULTURAL COUNCIL",
-    "description": "The Culture Code",
+    "id": "systemix",
+    "name": "SYSTEMIX",
+    "description": "Techtonix",
+    "logo": null
+  },
+  {
+    "id": "speakeasy",
+    "name": "SPEAKEASY",
+    "description": "Minutiae",
+    "logo": null
+  },
+  {
+    "id": "socrates",
+    "name": "SOCRATES",
+    "description": "Strategos",
+    "logo": null
+  },
+  {
+    "id": "women-in-management",
+    "name": "WOMEN IN MANAGEMENT",
+    "description": "Nazaria",
+    "logo": null
+  },
+  {
+    "id": "blash",
+    "name": "BLASH",
+    "description": "Commercio Artikel",
+    "logo": null
+  },
+  {
+    "id": "praxis",
+    "name": "PRAXIS",
+    "description": "The Policy Gazette",
+    "logo": null
+  },
+  {
+    "id": "brandwagon",
+    "name": "BRANDWAGON",
+    "description": "Markscribble",
     "logo": null
   }
 ]

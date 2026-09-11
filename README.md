@@ -126,7 +126,7 @@ See [Tailwind theme variables](https://tailwindcss.com/docs/theme).
 
 The default form downloads an **unsubmitted registration draft**. It sends nothing to a server and stores no personal data in localStorage. To use a real registration form, set `registration.externalUrl` in `site.json`, or an individual event's `registrationUrl`, to an HTTPS registration service URL. The calls to action then link to that service. An embedded submission backend, payment handling, and confirmation emails are not included.
 
-The published reference contains conflicting dates and some IGNITE wording. Those values remain editable in the content files. Resolve them with the organizers before public launch. `site.countdown.target` is `null`, preserving the reference's static display; set an explicit ISO date with timezone to activate the countdown. Speaker data lists the one named person rather than duplicating the same person four times.
+The published reference contains conflicting dates and some TRADEWINDS wording. Those values remain editable in the content files. Resolve them with the organizers before public launch. `site.countdown.target` is `null`, preserving the reference's static display; set an explicit ISO date with timezone to activate the countdown. Speaker data lists the one named person rather than duplicating the same person four times.
 
 This is file-based content editing, not an admin dashboard. Updating JSON or repository media requires a new deployment, which Vercel's Git integration can trigger automatically. External CDN files can be managed through the provider's dashboard.
 

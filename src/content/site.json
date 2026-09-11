@@ -6,10 +6,10 @@
   "theme": "Reglobalization: Navigating Trade in a Changing World",
   "venue": "IIFT, DELHI",
   "heroDates": "9TH – 11TH OCT 2026",
-  "posterDates": "12–14",
-  "posterMonth": "SEPTEMBER",
+  "posterDates": "09-11",
+  "posterMonth": "OCTOBER",
   "posterTagline": "TRADE · BUSINESS · REGLOBALIZATION",
-  "dateNotice": "The homepage hero lists 9–11 October. The schedule and event cards list 12–14 September. Confirm the dates with the organizers before making plans.",
+  "dateNotice": "The homepage hero lists 9–11 October. The schedule and event cards list 9–11 October. Confirm the dates with the organizers before making plans.",
   "logo": {
     "type": "image",
     "src": "/media/tradewinds-logo.png",
@@ -17,10 +17,14 @@
     "width": 250,
     "height": 250
   },
-  "heroMedia": null,
+  "heroMedia": {
+  "type": "image",
+  "src": "/media/samplephoto1.jpg",
+  "alt": "Trade Winds"
+},
   "countdown": {
     "label": "REGISTRATION CLOSES IN",
-    "target": null,
+    "target": "2026-10-09T23:59:59+05:30",
     "display": "08 : 14 : 36 : 22",
     "closedLabel": "REGISTRATION CLOSED"
   },
@@ -87,7 +91,7 @@
     },
     "sponsors": {
       "eyebrow": "OUR PARTNERS",
-      "title": "POWERING IGNITE 2026."
+      "title": "POWERING TRADE WINDS 2026."
     },
     "faq": {
       "eyebrow": "IMPORTANT INFORMATION",
@@ -96,11 +100,11 @@
   },
   "finalCta": {
     "title": "READY TO PARTICIPATE?",
-    "description": "The next move is yours. Secure your place at IGNITE 2026."
+    "description": "The next move is yours. Secure your place at TRADE WINDS 2026."
   },
   "footer": {
     "brand": "TRADEWINDS ’26",
-    "description": "Delhi’s flagship Business Conclave. 12–14 September 2026 · Delhi Campus."
+    "description": "Delhi’s flagship Business Conclave. 9–11 October 2026 · Delhi Campus."
   },
   "registration": {
     "externalUrl": "",

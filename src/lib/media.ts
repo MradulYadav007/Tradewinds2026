@@ -4,7 +4,7 @@ export function mediaUrl(src: string, base = import.meta.env.VITE_MEDIA_BASE_URL
     if (url.username || url.password) throw new Error('Media URLs must not contain credentials.');
     return src;
   }
-  if (!src.startsWith('/media/') || src.includes('..') || /[?#\\]/.test(src)) {
+  if (src && (!src.startsWith('/media/') || src.includes('..') || /[?#\\]/.test(src))) {
     throw new Error(`Media must use a /media/ path or HTTPS URL: ${src}`);
   }
   if (!base) return src;

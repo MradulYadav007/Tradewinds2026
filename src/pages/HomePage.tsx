@@ -13,40 +13,138 @@ import { Media } from '../components/Media';
 import { EventCard, SpeakerCard } from '../components/Cards';
 import { Countdown } from '../components/Countdown';
 import { registrationHref } from '../lib/registration';
+import '../styles/HomePage.css';
+import { useState } from 'react';
 
 export default function HomePage() {
+  
   return (
     <>
       {/* Hero Section */}
-      <section className="page-shell grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[1.45fr_1fr] lg:gap-20">
+      <section className="page-shell grid items-center ">
         <div>
-          <p className="eyebrow mb-7">{site.tagline}</p>
+          <p className="eyebrow header-tagline">{site.tagline}</p>
 
-          <h1 className="font-display text-7xl leading-none font-black tracking-tight md:text-[80px]">
-            {site.name}
-          </h1>
+          <div className="hero-mark">
+            <video
+              className="hero-video greyscale"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden="true"
+            >
+              <source src="../../public/media/bg.MOV" type="video/mp4" />
+            </video>
 
-          <h2 className="mt-8 text-xl leading-snug font-bold">
+            <svg
+              className="mark-wide"
+              viewBox="0 0 1200 200"
+              preserveAspectRatio="none"
+              role="img"
+              aria-label="TRADE WINDS"
+            >
+              <defs>
+                <mask id="knock">
+                  <rect
+                    x="-8"
+                    y="-8"
+                    width="1216"
+                    height="203"
+                    fill="#fff"
+                  />
+                  <text
+                    x="600"
+                    y="188"
+                    textAnchor="middle"
+                    fontSize="215"
+                    textLength="1120"
+                    lengthAdjust="spacingAndGlyphs"
+                  >
+                    TRADE WINDS
+                  </text>
+                </mask>
+              </defs>
+
+              <rect
+                className="knock"
+                x="-8"
+                y="-8"
+                width="1216"
+                height="203"
+                mask="url(#knock)"
+              />
+            </svg>
+
+            <svg
+              className="mark-stack"
+              viewBox="0 0 620 430"
+              preserveAspectRatio="none"
+              role="img"
+              aria-label="TRADE WINDS"
+            >
+              <defs>
+                <mask id="knock2">
+                  <rect
+                    x="-8"
+                    y="-8"
+                    width="636"
+                    height="446"
+                    fill="#fff"
+                  />
+                  <text
+                    x="310"
+                    y="188"
+                    textAnchor="middle"
+                    fontSize="200"
+                    textLength="580"
+                    lengthAdjust="spacingAndGlyphs"
+                    fill="#000"
+                  >
+                    TRADE
+                  </text>
+                  <text
+                    x="310"
+                    y="388"
+                    textAnchor="middle"
+                    fontSize="200"
+                    textLength="580"
+                    lengthAdjust="spacingAndGlyphs"
+                    fill="#000"
+                  >
+                    WINDS
+                  </text>
+                </mask>
+              </defs>
+
+              {/* <rect
+                className="knock"
+                x="-8"
+                y="-8"
+                width="636"
+                height="446"
+                mask="url(#knock2)"
+              /> */}
+            </svg>
+          </div>
+
+          <h2 className="mt-4 text-xl leading-snug font-bold header-theme">
             {site.theme}
           </h2>
 
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-muted">
+          <p className="mt-1 text-base leading-relaxed text-muted header-theme">
             {site.description}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-6 text-sm">
-            <strong>{site.heroDates}</strong>
-            <span>{site.venue}</span>
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-8 mb-8 flex flex-wrap items-center gap-4 header-buttons-group">
             <ActionLink href={registrationHref()}>
-              Register now
+              Download Brochure
             </ActionLink>
 
             <Link to="/viewallevents" className="text-link">
               Explore events
             </Link>
+
           </div>
         </div>
 
@@ -64,11 +162,10 @@ export default function HomePage() {
           )}
 
           <div
-            className={`relative ${
-              site.heroMedia?.type === 'image'
-                ? 'bg-canvas/95 p-4'
-                : ''
-            }`}
+            className={`relative ${site.heroMedia?.type === 'image'
+              ? 'bg-canvas/95 p-4'
+              : ''
+              }`}
           >
             <p className="font-display text-6xl leading-[.88] font-black tracking-tight">
               {site.posterDates}
@@ -83,13 +180,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Countdown */}
-      <Countdown />
-
       {/* Benefits */}
       <section className="page-shell section-space">
         <SectionHeading {...site.sections.benefits} />
-
         <div className="grid gap-10 md:grid-cols-3">
           {site.benefits.map((benefit, index) => (
             <article key={benefit.title}>
@@ -121,12 +214,19 @@ export default function HomePage() {
             linkText="View all events"
           />
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {events
-              .filter((event) => event.featured)
-              .map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
+          <div className="overflow-hidden">
+            <div className="flex gap-6 animate-event-carousel">
+              {[...events.filter((event) => event.featured), ...events.filter((event) => event.featured)].map(
+                (event, index) => (
+                  <div
+                    key={`${event.id}-${index}`}
+                    className="w-[280px] shrink-0 md:w-[300px]"
+                  >
+                    <EventCard event={event} />
+                  </div>
+                )
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -165,23 +265,24 @@ export default function HomePage() {
       {/* Speakers */}
       <section id="speakers" className="border-y border-line">
         <div className="page-shell section-space">
-          <SectionHeading
-            {...site.sections.speakers}
-            href="/viewallspeakers"
-            linkText="View all speakers"
-          />
+  <SectionHeading
+    {...site.sections.speakers}
+    href="/viewallspeakers"
+    linkText="View all speakers"
+  />
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {speakers
-              .filter((speaker) => speaker.featured)
-              .map((speaker) => (
-                <SpeakerCard
-                  key={speaker.id}
-                  speaker={speaker}
-                />
-              ))}
-          </div>
-        </div>
+  <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+    {speakers
+      .filter((speaker) => speaker.featured)
+      .slice(0, 5)
+      .map((speaker) => (
+        <SpeakerCard
+          key={speaker.id}
+          speaker={speaker}
+        />
+      ))}
+  </div>
+</div>
       </section>
 
       {/* Clubs */}

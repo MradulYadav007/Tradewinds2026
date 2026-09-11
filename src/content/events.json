@@ -11,7 +11,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/e_cell.png",
     "registrationUrl": ""
   },
   {
@@ -26,7 +26,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/opsigma_cell.png",
     "registrationUrl": ""
   },
   {
@@ -41,7 +41,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/synergia.png",
     "registrationUrl": ""
   },
   {
@@ -56,7 +56,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/systemix.png",
     "registrationUrl": ""
   },
   {
@@ -86,7 +86,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/socrates.png",
     "registrationUrl": ""
   },
   {
@@ -101,7 +101,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/wim.png",
     "registrationUrl": ""
   },
   {
@@ -116,7 +116,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/blash.png",
     "registrationUrl": ""
   },
   {
@@ -131,7 +131,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/praxis.png",
     "registrationUrl": ""
   },
   {
@@ -146,7 +146,7 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/brandwagon.png",
     "registrationUrl": ""
   }
 ]

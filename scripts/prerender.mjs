@@ -2,7 +2,6 @@ import { mkdir, readFile, writeFile, rm, access } from 'node:fs/promises';
 import { render, routes, siteOrigin, validateContent, mediaReferences } from '../.prerender/entry-server.js';
 
 validateContent();
-for (const src of mediaReferences) if (src.startsWith('/media/')) await access(`public${src}`);
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const template = await readFile('dist/index.html', 'utf8');
 let origin = siteOrigin.replace(/\/$/, '');

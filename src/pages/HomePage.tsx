@@ -184,7 +184,7 @@ export default function HomePage() {
       <section className="page-shell section-space">
         <SectionHeading {...site.sections.benefits} />
         <div className="grid gap-10 md:grid-cols-3">
-          {site.benefits.map((benefit, index) => (
+          {site.benefits.map((benefit:any, index:any) => (
             <article key={benefit.title}>
               <span className="font-display text-4xl font-black text-brand">
                 {String(index + 1).padStart(2, '0')}
@@ -273,9 +273,9 @@ export default function HomePage() {
 
   <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
     {speakers
-      .filter((speaker) => speaker.featured)
+      .filter((speaker:any) => speaker.featured)
       .slice(0, 5)
-      .map((speaker) => (
+      .map((speaker:any) => (
         <SpeakerCard
           key={speaker.id}
           speaker={speaker}

@@ -20,6 +20,8 @@
   "heroMedia": {
   "type": "image",
   "src": "/media/samplephoto1.jpg",
+  "width": null,
+  "height": null,
   "alt": "Trade Winds"
 },
   "countdown": {

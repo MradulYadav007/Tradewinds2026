@@ -13,8 +13,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   return <header className="page-shell">
-     {/* Countdown */}
-          <Countdown />
+    {/* Countdown */}
+    <Countdown />
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-canvas focus:p-4">Skip to content</a>
     <div className="relative flex min-h-28 flex-wrap items-center justify-between gap-5 border-b border-line py-5 xl:min-h-[136px]">
       <Link to="/" className="flex items-center gap-4 md:gap-9" aria-label={`${site.name} home`}>
@@ -23,7 +23,7 @@ export function Header() {
       </Link>
       <button className="rounded-button border border-line px-3 py-2 text-sm font-semibold xl:hidden" aria-controls="site-navigation" aria-expanded={open} onClick={() => setOpen(!open)} onKeyDown={event => { if (event.key === 'Escape') setOpen(false); }}>{open ? 'Close' : 'Menu'}</button>
       <nav id="site-navigation" aria-label="Main navigation" className={`${open ? 'flex' : 'hidden'} w-full flex-wrap items-center gap-x-5 gap-y-6 py-3 xl:flex xl:w-auto xl:py-0`}>
-        {site.navigation.map(item => <Link key={item.href} to={item.href} onClick={() => setOpen(false)} aria-current={pathname === item.href ? 'page' : undefined} className="text-sm font-semibold tracking-wide hover:text-brand aria-[current=page]:text-brand">{item.label}</Link>)}
+        {site.navigation.map((item:any) => <Link key={item.href} to={item.href} onClick={() => setOpen(false)} aria-current={pathname === item.href ? 'page' : undefined} className="text-sm font-semibold tracking-wide hover:text-brand aria-[current=page]:text-brand">{item.label}</Link>)}
         <span onClick={() => setOpen(false)}><ActionLink href={registrationHref()}>Register now</ActionLink></span>
       </nav>
     </div>
@@ -34,7 +34,7 @@ export function Footer() {
   return <footer id="about" className="page-shell">
     <div className="grid gap-8 border-t border-line py-12 md:grid-cols-[1.2fr_1fr]">
       <div><p className="font-display text-3xl font-black">{site.footer.brand}</p><p className="mt-3 max-w-sm text-base leading-relaxed text-muted">{site.footer.description}</p></div>
-      <nav aria-label="Footer navigation" className="flex flex-wrap content-start items-start gap-x-7 gap-y-4 md:justify-end">{site.navigation.map(item => <Link key={item.href} to={item.href} className="text-link">{item.label}</Link>)}</nav>
+      <nav aria-label="Footer navigation" className="flex flex-wrap content-start items-start gap-x-7 gap-y-4 md:justify-end">{site.navigation.map((item:any) => <Link key={item.href} to={item.href} className="text-link">{item.label}</Link>)}</nav>
       <p className="text-sm text-muted">© {site.year} {site.name}</p>
     </div>
   </footer>;

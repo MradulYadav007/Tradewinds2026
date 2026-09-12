@@ -34,7 +34,7 @@ export default function HomePage() {
               playsInline
               aria-hidden="true"
             >
-              <source src="../../public/media/bg.MOV" type="video/mp4" />
+              <source src="/media/bg.MOV" type="video/mp4" />
             </video>
 
             <svg
@@ -117,14 +117,14 @@ export default function HomePage() {
                 </mask>
               </defs>
 
-              {/* <rect
+              <rect
                 className="knock"
                 x="-8"
                 y="-8"
                 width="636"
                 height="446"
                 mask="url(#knock2)"
-              /> */}
+              />
             </svg>
           </div>
 

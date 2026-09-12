@@ -5,8 +5,19 @@ import { registrationHref } from '../lib/registration';
 import { Media } from './Media';
 import { Countdown } from './Countdown';
 
-export function ActionLink({ href, children, className = 'button-primary' }: { href: string; children: ReactNode; className?: string }) {
-  return href.startsWith('https://') ? <a href={href} className={className}>{children}</a> : <Link to={href} className={className}>{children}</Link>;
+export function ActionLink({ href, children, className = 'button-primary', download, target, rel }: { href: string; children: ReactNode; className?: string; download?: string; target?: string; rel?: string }) {
+  const isExternal = /^https?:\/\//i.test(href);
+  const isDownloadAsset = href.startsWith('/media/') || Boolean(download);
+
+  if (isExternal) {
+    return <a href={href} className={className} target={target} rel={target === '_blank' ? 'noopener noreferrer' : rel}>{children}</a>;
+  }
+
+  if (isDownloadAsset) {
+    return <a href={href} className={className} download={download} target={target} rel={rel}>{children}</a>;
+  }
+
+  return <Link to={href} className={className}>{children}</Link>;
 }
 
 export function Header() {

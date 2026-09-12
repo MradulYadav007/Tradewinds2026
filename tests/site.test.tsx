@@ -20,6 +20,14 @@ describe('deployable site', () => {
   it('keeps the draft explicit that it is not submitted', () => expect(registrationDraft({ name: 'Test', email: 'test@example.com', institution: 'College', event: 'Case Conquest', team: '' })).toContain('has not been submitted'));
 });
 
+describe('intro animation', () => {
+  it('renders a reusable intro markup using the existing site logo source', () => {
+    const html = render('/');
+    expect(html).toContain('/media/tradewinds-logo.png');
+    expect(html).toContain('intro-screen');
+  });
+});
+
 describe('CDN media', () => {
   it('uses local files by default', () => expect(mediaUrl('/media/logo.png', '')).toBe('/media/logo.png'));
   it('resolves a configured CDN base', () => expect(mediaUrl('/media/logo.png', 'https://cdn.example.com/')).toBe('https://cdn.example.com/media/logo.png'));

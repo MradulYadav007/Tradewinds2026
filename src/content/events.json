@@ -12,7 +12,22 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://unstop.com/competitions/innoquest-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754443"
+  },
+  {
+    "id": "Storypreneur",
+    "name": "STORYPRENEUR",
+    "category": "BUSINESS",
+    "organizer": "Entrepreneur Cell",
+    "clubId": "Entrepreneur-cell",
+    "date": "10 OCT",
+    "time": "TBD",
+    "venue": "TBD",
+    "format": "TEAM EVENT",
+    "status": "OPEN",
+    "featured": true,
+    "image": null,
+    "registrationUrl": "https://unstop.com/competitions/storypreneur-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754433"
   },
   {
     "id": "ops-magnum",
@@ -27,7 +42,7 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://unstop.com/competitions/opsmagnum-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754434"
   },
   {
     "id": "manthan",
@@ -42,7 +57,7 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://unstop.com/competitions/manthan-the-hr-article-writing-competition-trade-winds-2026-iift-new-delhi-1754870"
   },
   {
     "id": "techtonix",
@@ -57,7 +72,7 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://unstop.com/competitions/techtonix-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754499"
   },
   {
     "id": "minutiae",
@@ -87,7 +102,7 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://unstop.com/competitions/strategos-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754425"
   },
   {
     "id": "nazaria",
@@ -102,7 +117,7 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://unstop.com/competitions/nazariya-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754424"
   },
   {
     "id": "commercio-artikel",
@@ -117,7 +132,7 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://unstop.com/competitions/commercio-artikel-article-writing-competition-trade-winds-2026-iift-new-delhi-1754500"
   },
   {
     "id": "the-policy-gazette",
@@ -132,7 +147,7 @@
     "status": "OPEN",
     "featured": true,
     "image": null,
-    "registrationUrl": ""
+    "registrationUrl": "https://api.unstop.com/competitions/the-policy-gazette-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754529"
   },
   {
     "id": "markscribble",

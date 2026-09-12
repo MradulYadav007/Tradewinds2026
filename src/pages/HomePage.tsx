@@ -14,10 +14,21 @@ import { EventCard, SpeakerCard } from '../components/Cards';
 import { Countdown } from '../components/Countdown';
 import { registrationHref } from '../lib/registration';
 import '../styles/HomePage.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+const posterSliderImages = ['/media/1.png', '/media/2.png', '/media/3.png', '/media/4.png', '/media/5.png', '/media/6.png', '/media/7.png'];
 
 export default function HomePage() {
-  
+  const [posterImageIndex, setPosterImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setPosterImageIndex((current) => (current + 1) % posterSliderImages.length);
+    }, 2600);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -137,7 +148,7 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 mb-8 flex flex-wrap items-center gap-4 header-buttons-group">
-            <ActionLink href={registrationHref()}>
+            <ActionLink href="/media/TradeWinds Brochure_2026.pdf" download="TradeWinds Brochure_2026.pdf">
               Download Brochure
             </ActionLink>
 
@@ -161,21 +172,29 @@ export default function HomePage() {
             />
           )}
 
-          <div
-            className={`relative ${site.heroMedia?.type === 'image'
-              ? 'bg-canvas/95 p-4'
-              : ''
-              }`}
-          >
-            <p className="font-display text-6xl leading-[.88] font-black tracking-tight">
-              {site.posterDates}
-              <br />
-              {site.posterMonth}
-            </p>
+          <div className={`poster-image-slider ${site.heroMedia?.type === 'image' ? 'bg-canvas/95 p-4' : ''}`}> 
+            <div className="poster-image-viewport">
+              {posterSliderImages.map((image, index) => (
+                <img
+                  key={image}
+                  src={image}
+                  alt=""
+                  className={`poster-image-slide ${index === posterImageIndex ? 'poster-image-slide-active' : ''}`}
+                />
+              ))}
+            </div>
 
-            <p className="mt-4 text-xs font-bold tracking-wider">
-              {site.posterTagline}
-            </p>
+            <div className="poster-image-overlay">
+              <p className="font-display text-6xl leading-[.88] font-black tracking-tight">
+                {site.posterDates}
+                <br />
+                {site.posterMonth}
+              </p>
+
+              <p className="mt-4 text-xs font-bold tracking-wider">
+                {site.posterTagline}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -236,22 +255,11 @@ export default function HomePage() {
         <SectionHeading {...site.sections.schedule} />
 
         <div className="divide-y divide-line border-y border-line">
-          {schedule.slice(0, 4).map((item) => (
-            <div
-              key={item.id}
-              className="grid gap-3 py-6 text-sm md:grid-cols-[1fr_1.3fr_1fr] md:items-center"
-            >
-              <span className="text-muted">
-                {item.date} · {item.time}
-              </span>
-
-              <strong>{item.title}</strong>
-
-              <span className="text-muted md:text-right">
-                {item.venue}
-              </span>
-            </div>
-          ))}
+          <div className="grid gap-3 py-10 text-center">
+            <span className="font-display text-4xl font-black tracking-tight">
+              COMING SOON
+            </span>
+          </div>
         </div>
 
         <Link
@@ -289,23 +297,25 @@ export default function HomePage() {
       <section id="clubs" className="page-shell section-space">
         <SectionHeading eyebrow={site.sections.clubs.eyebrow} />
 
-        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {clubs.map((club) => (
-            <Link
-              to="/viewallclubs"
-              key={club.id}
-              className="flex min-h-32 items-center justify-center border border-line p-5 text-center font-display text-3xl font-black hover:bg-surface"
-            >
-              {club.logo ? (
-                <Media
-                  media={club.logo}
-                  className="size-20 object-contain"
-                />
-              ) : (
-                club.name
-              )}
-            </Link>
-          ))}
+        <div className="overflow-hidden">
+          <div className="flex gap-6 animate-club-carousel">
+            {[...clubs, ...clubs].map((club, index) => (
+              <Link
+                to="/viewallclubs"
+                key={`${club.id}-${index}`}
+                className="w-[180px] shrink-0 border border-line p-5 text-center font-display text-3xl font-black hover:bg-surface md:w-[210px]"
+              >
+                {club.logo ? (
+                  <Media
+                    media={club.logo}
+                    className="size-20 object-contain"
+                  />
+                ) : (
+                  club.name
+                )}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <Link

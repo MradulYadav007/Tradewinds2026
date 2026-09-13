@@ -17,6 +17,13 @@
     "width": 250,
     "height": 250
   },
+  "collegelogo": {
+    "type": "image",
+    "src": "/media/iift.png",
+    "alt": "IIFT Logo",
+    "width": 250,
+    "height": 250
+  },
   "heroMedia": {
   "type": "image",
   "src": "/media/samplephoto1.jpg",
@@ -104,7 +111,7 @@
   },
   "footer": {
     "brand": "TRADEWINDS ’26",
-    "description": "Delhi’s flagship Business Conclave. 9–11 October 2026 · Delhi Campus."
+    "description": "Delhi’s flagship Business Conclave. 9–11 October 2026 · Indian Institue Of Foreign Trade, New Delhi"
   },
   "registration": {
     "externalUrl": "",

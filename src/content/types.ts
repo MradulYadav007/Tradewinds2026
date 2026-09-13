@@ -14,4 +14,4 @@ export interface Event {
   featured: boolean; image: MediaAsset | null; registrationUrl: string;
 }
 export interface Speaker { id: string; name: string; role: string; bio: string; image: MediaAsset | null; featured: boolean; website: string; description: string; }
-export interface Club { id: string; name: string; description: string; logo: MediaAsset | null }
+export interface Club { id: string; name: string; description: string; logo: MediaAsset | null;src: string; }

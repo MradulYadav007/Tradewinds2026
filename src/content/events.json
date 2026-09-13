@@ -12,6 +12,7 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/e_cell.png",
+    "src": "/media/e_cell.png",
     "registrationUrl": ""
   },
   {
@@ -27,6 +28,7 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/opsigma_cell.png",
+    "src": "/media/opsigma_cell.png",
     "registrationUrl": ""
   },
   {
@@ -42,6 +44,7 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/synergia.png",
+    "src": "/media/synergia.png",
     "registrationUrl": ""
   },
   {
@@ -57,21 +60,7 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/systemix.png",
-    "registrationUrl": ""
-  },
-  {
-    "id": "minutiae",
-    "name": "MINUTIAE",
-    "category": "GENERAL",
-    "organizer": "SpeakEasy",
-    "clubId": "speakeasy",
-    "date": "10 OCT",
-    "time": "TBD",
-    "venue": "TBD",
-    "format": "TEAM EVENT",
-    "status": "OPEN",
-    "featured": true,
-    "image": null,
+    "src": "/media/systemix.png",
     "registrationUrl": ""
   },
   {
@@ -87,6 +76,7 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/socrates.png",
+    "src": "/media/socrates.png",
     "registrationUrl": ""
   },
   {
@@ -102,6 +92,7 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/wim.png",
+    "src": "/media/wim.png",
     "registrationUrl": ""
   },
   {
@@ -117,6 +108,7 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/blash.png",
+    "src": "/media/blash.png",
     "registrationUrl": ""
   },
   {
@@ -132,21 +124,39 @@
     "status": "OPEN",
     "featured": true,
     "image": "/media/praxis.png",
+    "src": "/media/praxis.png",
     "registrationUrl": ""
   },
   {
     "id": "markscribble",
     "name": "MARKSCRIBBLE",
-    "category": "MARKETING",
-    "organizer": "BrandWagon",
-    "clubId": "brandwagon",
+    "category": "Entrepreneurship",
+    "organizer": "e-cell",
+    "clubId": "e-cell",
     "date": "10 OCT",
     "time": "TBD",
     "venue": "TBD",
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": "/media/brandwagon.png",
+    "image": "/media/e_cell.png",
+    "src": "/media/e_cell.png",
+    "registrationUrl": ""
+  },
+  {
+    "id": "fintellect",
+    "name": "FINTELLECT",
+    "category": "FINANCE",
+    "organizer": "Capital",
+    "clubId": "capital",
+    "date": "10 OCT",
+    "time": "TBD",
+    "venue": "TBD",
+    "format": "TEAM EVENT",
+    "status": "OPEN",
+    "featured": true,
+    "image": "/media/capital_cell.png",
+    "src": "/media/capital_cell.png",
     "registrationUrl": ""
   }
 ]

@@ -11,7 +11,8 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/indutry_cell.png",
+    "src": "/media/indutry_cell.png",
     "registrationUrl": "https://unstop.com/competitions/innoquest-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754443"
   },
   {
@@ -26,8 +27,9 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
-    "registrationUrl": "https://unstop.com/competitions/storypreneur-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754433"
+    "registrationUrl": "https://unstop.com/competitions/storypreneur-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754433",
+    "image": "/media/e_cell.png",
+    "src": "/media/e_cell.png"
   },
   {
     "id": "ops-magnum",
@@ -41,8 +43,9 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
-    "registrationUrl": "https://unstop.com/competitions/opsmagnum-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754434"
+    "registrationUrl": "https://unstop.com/competitions/opsmagnum-2026-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754434",
+    "image": "/media/opsigma_cell.png",
+    "src": "/media/opsigma_cell.png"
   },
   {
     "id": "manthan",
@@ -56,8 +59,9 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
-    "registrationUrl": "https://unstop.com/competitions/manthan-the-hr-article-writing-competition-trade-winds-2026-iift-new-delhi-1754870"
+    "registrationUrl": "https://unstop.com/competitions/manthan-the-hr-article-writing-competition-trade-winds-2026-iift-new-delhi-1754870",
+    "image": "/media/synergia.png",
+    "src": "/media/synergia.png"
   },
   {
     "id": "techtonix",
@@ -71,23 +75,9 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/systemix.png",
+    "src": "/media/systemix.png",
     "registrationUrl": "https://unstop.com/competitions/techtonix-the-article-writing-competition-trade-winds-2026-iift-new-delhi-1754499"
-  },
-  {
-    "id": "minutiae",
-    "name": "MINUTIAE",
-    "category": "GENERAL",
-    "organizer": "SpeakEasy",
-    "clubId": "speakeasy",
-    "date": "10 OCT",
-    "time": "TBD",
-    "venue": "TBD",
-    "format": "TEAM EVENT",
-    "status": "OPEN",
-    "featured": true,
-    "image": null,
-    "registrationUrl": ""
   },
   {
     "id": "strategos",
@@ -101,8 +91,9 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
-    "registrationUrl": "https://unstop.com/competitions/strategos-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754425"
+    "registrationUrl": "https://unstop.com/competitions/strategos-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754425",
+    "image": "/media/socrates.png",
+    "src": "/media/socrates.png"
   },
   {
     "id": "nazaria",
@@ -116,8 +107,9 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
-    "registrationUrl": "https://unstop.com/competitions/nazariya-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754424"
+    "registrationUrl": "https://unstop.com/competitions/nazariya-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754424",
+    "image": "/media/wim.png",
+    "src": "/media/wim.png"
   },
   {
     "id": "commercio-artikel",
@@ -131,8 +123,9 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
-    "registrationUrl": "https://unstop.com/competitions/commercio-artikel-article-writing-competition-trade-winds-2026-iift-new-delhi-1754500"
+    "registrationUrl": "https://unstop.com/competitions/commercio-artikel-article-writing-competition-trade-winds-2026-iift-new-delhi-1754500",
+    "image": "/media/blash.png",
+    "src": "/media/blash.png"
   },
   {
     "id": "the-policy-gazette",
@@ -146,22 +139,40 @@
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
-    "registrationUrl": "https://api.unstop.com/competitions/the-policy-gazette-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754529"
+    "registrationUrl": "https://api.unstop.com/competitions/the-policy-gazette-2026-article-writing-competition-trade-winds-2026-iift-new-delhi-1754529",
+    "image": "/media/praxis.png",
+    "src": "/media/praxis.png"
   },
   {
     "id": "markscribble",
     "name": "MARKSCRIBBLE",
-    "category": "MARKETING",
-    "organizer": "BrandWagon",
-    "clubId": "brandwagon",
+    "category": "Entrepreneurship",
+    "organizer": "e-cell",
+    "clubId": "e-cell",
     "date": "10 OCT",
     "time": "TBD",
     "venue": "TBD",
     "format": "TEAM EVENT",
     "status": "OPEN",
     "featured": true,
-    "image": null,
+    "image": "/media/e_cell.png",
+    "src": "/media/e_cell.png",
+    "registrationUrl": ""
+  },
+  {
+    "id": "fintellect",
+    "name": "FINTELLECT",
+    "category": "FINANCE",
+    "organizer": "Capital",
+    "clubId": "capital",
+    "date": "10 OCT",
+    "time": "TBD",
+    "venue": "TBD",
+    "format": "TEAM EVENT",
+    "status": "OPEN",
+    "featured": true,
+    "image": "/media/capital_cell.png",
+    "src": "/media/capital_cell.png",
     "registrationUrl": ""
   }
 ]

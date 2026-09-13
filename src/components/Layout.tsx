@@ -29,6 +29,7 @@ export function Header() {
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-canvas focus:p-4">Skip to content</a>
     <div className="relative flex min-h-28 flex-wrap items-center justify-between gap-5 border-b border-line py-5 xl:min-h-[136px]">
       <Link to="/" className="flex items-center gap-4 md:gap-9" aria-label={`${site.name} home`}>
+        <Media media={site.collegelogo} priority className="size-14 shrink-0 object-contain md:size-[91px]" />
         <Media media={site.logo} priority className="size-14 shrink-0 object-contain md:size-[91px]" />
         <span className="font-display text-3xl leading-none font-black tracking-tight md:text-[40px]">{site.name}</span>
       </Link>

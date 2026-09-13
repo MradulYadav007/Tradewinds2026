@@ -105,6 +105,107 @@
   animation-play-state: paused;
 }
 
+.sponsor-marquee {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-line, #d8d9df);
+  background: var(--color-surface, #f8f8f3);
+  padding: 1rem 0;
+}
+
+.sponsor-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: max-content;
+  min-width: 100%;
+  animation: sponsor-marquee 16s linear infinite;
+}
+
+.sponsor-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.sponsor-marquee-logo {
+  width: 150px;
+  height: 80px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: grayscale(100%);
+  opacity: 0.92;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-line, #d8d9df);
+  border-radius: 1.5rem;
+  background: var(--color-canvas, #f8f8f3);
+  padding: 2rem 1rem;
+  min-height: 220px;
+  text-align: center;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: var(--color-surface, #f8f8f3);
+  border: 1px solid var(--color-line, #d8d9df);
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.contact-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted, #787878);
+}
+
+.contact-link,
+.contact-copy {
+  display: block;
+  margin: 0.15rem 0;
+  color: var(--color-ink, #141414);
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: var(--color-brand, #a98459);
+}
+
+@keyframes sponsor-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .poster-image-slider {
   position: relative;
   display: flex;

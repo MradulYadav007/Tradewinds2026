@@ -3,60 +3,84 @@
     "id": "industry-cell",
     "name": "INDUSTRY CELL",
     "description": "Innoquest",
-    "logo": null
+    "logo": "/media/i_cell_logo.png",
+    "src": "/media/i_cell_logo.png"
+  },
+  {
+    "id": "capital",
+    "name": "CAPITAL",
+    "description": "Fintellect",
+    "logo": "/media/capital_logo.png",
+    "src": "/media/capital_logo.png"
   },
   {
     "id": "opsigma",
     "name": "OPSIGMA",
     "description": "Opsmagnum",
-    "logo": null
+    "logo": "/media/opsigma_logo.png",
+    "src": "/media/opsigma_logo.png"
   },
   {
     "id": "synergia",
     "name": "SYNERGIA",
     "description": "Manthan",
-    "logo": null
+    "logo": "/media/synergia_logo .png",
+    "src": "/media/synergia_logo .png"
   },
   {
     "id": "systemix",
     "name": "SYSTEMIX",
     "description": "Techtonix",
-    "logo": null
+    "logo": "/media/systemix_logo.png",
+    "src": "/media/systemix_logo.png"
   },
   {
     "id": "speakeasy",
     "name": "SPEAKEASY",
     "description": "Minutiae",
-    "logo": null
+    "logo": "/media/Speakeasy_logo.jpeg",
+    "src": "/media/Speakeasy_logo.jpeg"
   },
   {
     "id": "socrates",
     "name": "SOCRATES",
     "description": "Strategos",
-    "logo": null
+    "logo": "/media/socrates_logo.PNG",
+    "src": "/media/socrates_logo.PNG"
   },
   {
     "id": "women-in-management",
     "name": "WOMEN IN MANAGEMENT",
     "description": "Nazaria",
-    "logo": null
+    "logo": "/media/wim_logo.png",
+    "src": "/media/wim_logo.png"
   },
   {
     "id": "blash",
     "name": "BLASH",
     "description": "Commercio Artikel",
-    "logo": null
+    "logo": "/media/blash_Logo.png",
+    "src": "/media/blash_Logo.png"
   },
   {
     "id": "praxis",
     "name": "PRAXIS",
     "description": "The Policy Gazette",
-    "logo": null
+    "logo": "/media/praxis_logo.png",
+    "src": "/media/praxis_logo.png"
   },
   {
     "id": "brandwagon",
     "name": "BRANDWAGON",
     "description": "Markscribble",
-    "logo": null
+    "logo": "/media/Brandwagon_logo.png",
+    "src": "/media/Brandwagon_logo.png" 
+  },
+  {
+    "id": "e-cell",
+    "name": "E-CELL",
+    "description": "Entrepreneurship Cell",
+    "logo": "/media/e cell_logo.png",
+    "src": "/media/e cell_logo.png" 
   }
 ]

@@ -303,11 +303,11 @@ export default function HomePage() {
               <Link
                 to="/viewallclubs"
                 key={`${club.id}-${index}`}
-                className="w-[180px] shrink-0 border border-line p-5 text-center font-display text-3xl font-black hover:bg-surface md:w-[210px]"
+                className="w-[180px] shrink-0 border border-line p-5 text-center font-display text-3xl font-black hover:bg-surface md:w-[120px]"
               >
                 {club.logo ? (
                   <Media
-                    media={club.logo}
+                    media={club}
                     className="size-20 object-contain"
                   />
                 ) : (
@@ -334,19 +334,17 @@ export default function HomePage() {
         <div className="page-shell section-space">
           <SectionHeading {...site.sections.sponsors} />
 
-          <div className="space-y-7">
-            {sponsors.map((sponsor) => (
-              <p
-                key={sponsor.id}
-                className="text-base font-semibold md:text-lg"
-              >
-                <span className="text-muted">
-                  {sponsor.tier} ·{' '}
-                </span>
-
-                {sponsor.names.join(' / ')}
-              </p>
-            ))}
+          <div className="sponsor-marquee" aria-label="Sponsor partners">
+            <div className="sponsor-marquee-track">
+              {[...Array(14)].map((_, index) => (
+                <img
+                  key={`sponsor-${index}`}
+                  className="sponsor-marquee-logo"
+                  src="/media/sponsor.jpg"
+                  alt="Sponsor"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -370,6 +368,61 @@ export default function HomePage() {
               </p>
             </details>
           ))}
+        </div>
+      </section>
+
+      {/* Contact Us */}
+      <section id="contact" className="border-y border-line bg-surface/40">
+        <div className="page-shell section-space">
+          <SectionHeading
+            eyebrow="CONTACT US"
+            title="HAVE A QUESTION?"
+          />
+
+          <div className="grid gap-8 md:grid-cols-4">
+            <div className="contact-card">
+              <span className="contact-icon-wrap">
+                <img src="/media/contact-email.svg" alt="" className="contact-icon" />
+              </span>
+              <p className="contact-label">EMAIL</p>
+              <a className="contact-link" href="mailto:tradewinds@iift.edu">
+                tradewinds@iift.edu
+              </a>
+            </div>
+
+            <div className="contact-card">
+              <span className="contact-icon-wrap">
+                <img src="/media/contact-phone.svg" alt="" className="contact-icon" />
+              </span>
+              <p className="contact-label">PHONE</p>
+              <a className="contact-link" href="tel:+919306420334">
+                Dr. Sargam Yadav
+              </a>
+              <a className="contact-link" href="tel:+919306420334">
+                +91 9306420334
+              </a>
+            </div>
+
+            <div className="contact-card">
+              <span className="contact-icon-wrap">
+                <img src="/media/contact-location.svg" alt="" className="contact-icon" />
+              </span>
+              <p className="contact-label">LOCATION</p>
+              <p className="contact-copy">
+                IIFT Delhi, India
+              </p>
+            </div>
+
+            <div className="contact-card">
+              <span className="contact-icon-wrap">
+                <img src="/media/contact-instagram.svg" alt="" className="contact-icon" />
+              </span>
+              <p className="contact-label">INSTAGRAM</p>
+              <a className="contact-link" href="https://instagram.com/tradewinds_iiftdelhi" target="_blank" rel="noopener noreferrer">
+                @tradewinds_iiftdelhi
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

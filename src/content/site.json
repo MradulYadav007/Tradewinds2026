@@ -25,10 +25,10 @@
     "height": 250
   },
   "heroMedia": {
-  "type": "image",
-  "src": "/media/samplephoto1.jpg",
-  "alt": "Trade Winds"
-},
+    "type": "image",
+    "src": "/media/samplephoto1.jpg",
+    "alt": "Trade Winds"
+  },
   "countdown": {
     "label": "REGISTRATION CLOSES IN",
     "target": "2026-10-09T23:59:59+05:30",
@@ -67,12 +67,12 @@
       "description": "Test sharp thinking under pressure across business, culture, sport and tech."
     },
     {
-      "title": "WORKSHOPS",
-      "description": "Leave with frameworks, feedback and tools you can use beyond the campus."
+      "title": "PANEL DISCUSSIONS",
+      "description": "Engage with diverse perspectives, industry insights and thought-provoking conversations on ideas that shape the world."
     },
     {
-      "title": "THE RIGHT ROOM",
-      "description": "Meet operators, speakers, teams and future collaborators who move with intent."
+      "title": "ARTICLE WRITING COMPETITIONS",
+      "description": "Put your ideas into words, challenge conventional thinking and compete through insightful, original perspectives."
     }
   ],
   "sections": {

@@ -11,7 +11,7 @@ export interface MediaAsset {
 export interface Event {
   id: string; name: string; category: string; organizer: string; clubId: string | null;
   date: string; time: string; venue: string; format: string; status: string;
-  featured: boolean; image: MediaAsset | null; registrationUrl: string;
+  featured: boolean; image: MediaAsset | string | null; registrationUrl: string;
 }
-export interface Speaker { id: string; name: string; role: string; bio: string; image: MediaAsset | null; featured: boolean; website: string; description: string; }
-export interface Club { id: string; name: string; description: string; logo: MediaAsset | null;src: string; }
+export interface Speaker { id: string; name: string; role: string; bio: string; image: MediaAsset | string | null; featured: boolean; website: string | null; description: string; }
+export interface Club { id: string; name: string; description: string; logo: MediaAsset | string | null; src: string; }

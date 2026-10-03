@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export function EventCard({ event }: { event: Event }) {
   return <article className="flex min-w-0 flex-col items-start gap-5 border border-line p-6 md:p-7">
-    {event.image && <Media media={event} className="aspect-video w-full object-cover" />}
+    {event.image && <Media media={event.image} className="aspect-video w-full object-cover" />}
     <p className="eyebrow">{event.category}</p>
     <h3 className="font-display text-4xl leading-tight font-black tracking-tight">{event.name}</h3>
     <p className="text-base leading-relaxed text-muted">{event.organizer} · {event.date} · {event.time}</p>
@@ -31,7 +31,7 @@ export function SpeakerCard({ speaker }: { speaker: Speaker }) {
         <div className="aspect-[4/4.2] w-full overflow-hidden rounded-[26px]">
           {speaker.image ? (
             <Media
-              media={speaker}
+              media={speaker.image!}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
@@ -74,7 +74,7 @@ export function SpeakerCard({ speaker }: { speaker: Speaker }) {
             <div className="mx-auto size-48 overflow-hidden rounded-full">
               {speaker.image ? (
                 <Media
-                  media={speaker}
+                  media={speaker.image!}
                   className="h-full w-full object-cover"
                 />
               ) : (
@@ -116,7 +116,7 @@ export function SpeakerCard({ speaker }: { speaker: Speaker }) {
 export function ClubCard({ club, index }: { club: Club; index: number }) {
   const hostedEvents = events.filter(event => event.clubId === club.id);
   return <article className="flex flex-col items-start gap-5 border border-line p-7">
-    {club.logo ? <Media media={club} className="size-20 object-contain" /> : <span className="font-display text-5xl font-black text-brand">{String(index + 1).padStart(2, '0')}</span>}
+    {club.logo ? <Media media={club.logo} className="size-20 object-contain" /> : <span className="font-display text-5xl font-black text-brand">{String(index + 1).padStart(2, '0')}</span>}
     <h2 className="font-display text-4xl font-black">{club.name}</h2><p className="text-base text-muted">{club.description}</p>
     {hostedEvents.map(event => <div key={event.id} className="mt-auto"><p className="mb-4 text-sm text-muted">{event.date} · {event.time}</p><Link className="text-link" to={`/registernow?event=${event.id}`}>Explore registration →</Link></div>)}
   </article>;

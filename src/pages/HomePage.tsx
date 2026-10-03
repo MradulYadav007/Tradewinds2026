@@ -307,7 +307,7 @@ export default function HomePage() {
               >
                 {club.logo ? (
                   <Media
-                    media={club}
+                    media={club.logo}
                     className="size-20 object-contain"
                   />
                 ) : (

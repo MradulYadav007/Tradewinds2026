@@ -10,6 +10,8 @@
 
 # production
 /build
+/dist
+/.prerender
 
 # misc
 .DS_Store

@@ -17,9 +17,48 @@ import '../styles/HomePage.css';
 import { useEffect, useState } from 'react';
 
 const posterSliderImages = ['/media/1.png', '/media/2.png', '/media/3.png', '/media/4.png', '/media/5.png', '/media/6.png', '/media/7.png'];
+const monthNumbers: Record<string, number> = {
+  JAN: 0, FEB: 1, MAR: 2, APR: 3, MAY: 4, JUN: 5,
+  JUL: 6, AUG: 7, SEP: 8, OCT: 9, NOV: 10, DEC: 11,
+};
+
+function getScheduleTimestamps(item: (typeof schedule)[number], year: number): { start: number; end: number } | null {
+  const dateMatch = item.date.match(/^(\d{1,2})\s+([A-Z]{3})$/i);
+  if (!dateMatch) return null;
+
+  const month = monthNumbers[dateMatch[2].toUpperCase()];
+  const day = Number(dateMatch[1]);
+  if (month === undefined) return null;
+
+  const date = new Date(year, month, day);
+  if (date.getMonth() !== month || date.getDate() !== day) return null;
+
+  const timeMatch = item.time.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!timeMatch) return null;
+
+  const toDateTime = (hour: string, minute: string, period: string) => {
+    const time = new Date(date);
+    let hours = Number(hour) % 12;
+    if (period.toUpperCase() === 'PM') hours += 12;
+    time.setHours(hours, Number(minute), 0, 0);
+    return time;
+  };
+
+  const start = toDateTime(timeMatch[1], timeMatch[2], timeMatch[3]);
+  const end = toDateTime(timeMatch[4], timeMatch[5], timeMatch[6]);
+  if (end.getTime() <= start.getTime()) end.setDate(end.getDate() + 1);
+  return { start: start.getTime(), end: end.getTime() };
+}
 
 export default function HomePage() {
   const [posterImageIndex, setPosterImageIndex] = useState(0);
+  const now = new Date();
+  const nowTimestamp = now.getTime();
+  const upcomingSchedule = schedule
+    .map((item, index) => ({ item, index, timestamps: getScheduleTimestamps(item, site.year) }))
+    .filter(({ timestamps }) => timestamps !== null && timestamps.end > nowTimestamp)
+    .sort((first, second) => first.timestamps!.start - second.timestamps!.start || first.index - second.index)
+    .slice(0, 3);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -255,11 +294,29 @@ export default function HomePage() {
         <SectionHeading {...site.sections.schedule} />
 
         <div className="divide-y divide-line border-y border-line">
-          <div className="grid gap-3 py-10 text-center">
-            <span className="font-display text-4xl font-black tracking-tight">
-              COMING SOON
-            </span>
-          </div>
+          {upcomingSchedule.length ? upcomingSchedule.map(({ item, timestamps }) => {
+            const isLive = nowTimestamp >= timestamps!.start && nowTimestamp < timestamps!.end;
+
+            return (
+            <article
+              key={item.id}
+              className="grid gap-2 py-5 transition-colors hover:bg-surface/60 sm:grid-cols-[140px_1fr_auto] sm:items-center sm:gap-6 sm:px-4"
+            >
+              <span className="text-sm font-bold text-brand">{item.date} · {item.time}</span>
+              <span>
+                <span className="block font-display text-2xl font-black tracking-tight">{item.title}</span>
+                {item.club && <span className="mt-1 block text-sm text-muted">{item.club}</span>}
+              </span>
+              {(item.venue || isLive) && (
+                <span className="flex items-center gap-3 text-sm sm:justify-end">
+                  {item.venue && <span className="text-muted">{item.venue}</span>}
+                  {isLive && <span className="border border-brand px-2 py-1 font-bold text-brand">ON GOING</span>}
+                </span>
+              )}
+            </article>
+          );}) : (
+            <p className="py-10 text-center text-muted">No upcoming events are currently listed.</p>
+          )}
         </div>
 
         <Link

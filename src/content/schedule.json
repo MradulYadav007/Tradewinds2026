@@ -1,30 +1,164 @@
 [
   {
     "id": "inauguration",
-    "date": "12 SEP",
-    "time": "09:00 AM",
+    "date": "09 OCT",
+    "time": "10:00 AM - 11:30 AM",
     "title": "INAUGURATION",
-    "venue": "AUDITORIUM"
+    "club": "",
+    "panelists": [],
+    "venue": ""
   },
   {
-    "id": "case-competition",
-    "date": "12 SEP",
-    "time": "11:00 AM",
-    "title": "CASE COMPETITION",
-    "venue": "HALL A"
+    "id": "national-trade-summit",
+    "date": "09 OCT",
+    "time": "12:00 PM - 02:00 PM",
+    "title": "NATIONAL TRADE SUMMIT",
+    "club": "BLASH",
+    "panelists": [
+      "Ajay Srivastava",
+      "Minal Buch",
+      "Shalabh Singhal",
+      "Vidya Bhushan",
+      "Mamta Thanvi Purohit"
+    ],
+    "venue": ""
   },
   {
-    "id": "workshop",
-    "date": "13 SEP",
-    "time": "10:00 AM",
-    "title": "WORKSHOP",
-    "venue": "HALL B"
+    "id": "national-economics-and-public-policy-summit",
+    "date": "09 OCT",
+    "time": "03:00 PM - 04:30 PM",
+    "title": "NATIONAL ECONOMICS AND PUBLIC POLICY SUMMIT",
+    "club": "Praxis",
+    "panelists": [
+      "Atul K Thakur",
+      "Dr. S P Sharma",
+      "Mayank Jain",
+      "Dr Atul Kaushik"
+    ],
+    "venue": ""
   },
   {
-    "id": "panel",
-    "date": "14 SEP",
-    "time": "02:00 PM",
-    "title": "PANEL DISCUSSION",
-    "venue": "AUDITORIUM"
+    "id": "national-finance-summit",
+    "date": "09 OCT",
+    "time": "05:00 PM - 07:00 PM",
+    "title": "NATIONAL FINANCE SUMMIT",
+    "club": "Capital",
+    "panelists": [
+      "Dhianu Das",
+      "Diptangshu Chatterjee"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-marketing-summit",
+    "date": "10 OCT",
+    "time": "10:00 AM - 12:00 PM",
+    "title": "NATIONAL MARKETING SUMMIT",
+    "club": "Brandwagon",
+    "panelists": [
+      "Suyash Mehrotra",
+      "Arati Mukerji",
+      "Saurabh Sharma",
+      "Abhishek Mehra",
+      "Deepika Rastogi"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-hr-summit",
+    "date": "10 OCT",
+    "time": "12:30 PM - 02:15 PM",
+    "title": "NATIONAL HR SUMMIT",
+    "club": "Synergia",
+    "panelists": [
+      "Alekhya Chakrabarty",
+      "Radhika Tomar"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-leadership-summit",
+    "date": "10 OCT",
+    "time": "03:00 PM - 05:00 PM",
+    "title": "NATIONAL LEADERSHIP SUMMIT",
+    "club": "Socrates",
+    "panelists": [
+      "Aashish Kumar Gupta",
+      "Sanjay Dawar",
+      "Punit Banga",
+      "Mohit Sharma"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-digital-summit",
+    "date": "10 OCT",
+    "time": "05:30 PM - 07:00 PM",
+    "title": "NATIONAL DIGITAL SUMMIT",
+    "club": "Systemix",
+    "panelists": [
+      "Sakshi Bakshi (Tentative)",
+      "Shaveta Kapoor",
+      "Mohit Pant (Tentative)",
+      "Neha Chauhan",
+      "Anupam Kumar Mishra",
+      "Sulabh Vij",
+      "Mahipal Nair"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-entrepreneurship-summit",
+    "date": "11 OCT",
+    "time": "10:00 AM - 11:30 PM",
+    "title": "NATIONAL ENTREPRENEURSHIP SUMMIT",
+    "club": "E and I Cell",
+    "panelists": [
+      "Arun Pandit",
+      "Mitesh Lohiya",
+      "Siddhartha Ghosh",
+      "Pranav Kumar"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-operations-summit",
+    "date": "11 OCT",
+    "time": "12:00 PM - 02:00 PM",
+    "title": "NATIONAL OPERATIONS SUMMIT",
+    "club": "OpSigma",
+    "panelists": [
+      "Bhupendra Kumar",
+      "Tarun Varma",
+      "Naveen Kumar"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-women-leadership-summit",
+    "date": "11 OCT",
+    "time": "03:00 PM - 05:00 PM",
+    "title": "NATIONAL WOMEN LEADERSHIP SUMMIT",
+    "club": "WIM",
+    "panelists": [
+      "Megha Yadav",
+      "Garima Jain",
+      "Rashmi Chawla",
+      "Sunil Jaglan"
+    ],
+    "venue": ""
+  },
+  {
+    "id": "national-oratory-summit",
+    "date": "11 OCT",
+    "time": "05:30 PM - 07:00 PM",
+    "title": "NATIONAL ORATORY SUMMIT",
+    "club": "Speakeasy",
+    "panelists": [
+      "Madhvi Bangur",
+      "Kapil Mishra",
+      "Shubham Saurav Singh"
+    ],
+    "venue": ""
   }
 ]

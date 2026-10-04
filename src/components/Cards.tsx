@@ -26,26 +26,20 @@ export function SpeakerCard({ speaker }: { speaker: Speaker }) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="group w-full text-center"
+        className="group flex h-full w-full flex-col items-center text-center"
       >
-        <div className="aspect-[4/4.2] w-full overflow-hidden rounded-[26px]">
-          {speaker.image ? (
-            <Media
-              media={speaker.image!}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center bg-canvas text-muted">
-              No Image
-            </div>
-          )}
+        <div className="aspect-[4/4.2] w-full shrink-0 overflow-hidden rounded-[26px]">
+          <Media
+            media={speaker.image || '/media/no-image.png'}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
         </div>
 
-        <h3 className="mt-6 font-display text-3xl font-black leading-tight">
+        <h3 className="mt-6 min-h-[4.5rem] w-full font-display text-3xl font-black leading-tight">
           {speaker.name}
         </h3>
 
-        <p className="mt-4 px-2 text-lg font-bold leading-snug">
+        <p className="mt-4 min-h-[5rem] px-2 text-lg font-bold leading-snug">
           {speaker.role}
         </p>
       </button>
@@ -72,16 +66,10 @@ export function SpeakerCard({ speaker }: { speaker: Speaker }) {
 
             {/* Speaker Image */}
             <div className="mx-auto size-48 overflow-hidden rounded-full">
-              {speaker.image ? (
-                <Media
-                  media={speaker.image!}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-neutral-800 text-white/50">
-                  No Image
-                </div>
-              )}
+              <Media
+                media={speaker.image || '/media/no-image.png'}
+                className="h-full w-full object-cover"
+              />
             </div>
 
             {/* Speaker Details */}

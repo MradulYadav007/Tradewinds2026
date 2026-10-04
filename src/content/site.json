@@ -1,5 +1,5 @@
 {
-  "name": "TRADE WINDS",
+  "name": "TRADEWINDS",
   "year": 2026,
   "tagline": "IIFT Delhi’s flagship annual business conclave",
   "description": "Three days of restless ideas, live competition and the people building what’s next. Find your arena, make your case, and leave a mark.",
@@ -27,7 +27,7 @@
   "heroMedia": {
     "type": "image",
     "src": "/media/samplephoto1.jpg",
-    "alt": "Trade Winds"
+    "alt": "TradeWinds"
   },
   "countdown": {
     "label": "REGISTRATION CLOSES IN",
@@ -98,7 +98,7 @@
     },
     "sponsors": {
       "eyebrow": "OUR PARTNERS",
-      "title": "POWERING TRADE WINDS 2026."
+      "title": "POWERING TRADEWINDS 2026."
     },
     "faq": {
       "eyebrow": "IMPORTANT INFORMATION",
@@ -107,7 +107,7 @@
   },
   "finalCta": {
     "title": "READY TO PARTICIPATE?",
-    "description": "The next move is yours. Secure your place at TRADE WINDS 2026."
+    "description": "The next move is yours. Secure your place at TRADEWINDS 2026."
   },
   "footer": {
     "brand": "TRADEWINDS ’26",
@@ -124,23 +124,23 @@
     "events": {
       "eyebrow": "FIND YOUR ARENA",
       "title": "CHOOSE YOUR ARENA.",
-      "description": "Test sharp thinking under pressure. Explore the events featured at Trade Winds and find your next challenge."
+      "description": "Test sharp thinking under pressure. Explore the events featured at TradeWinds and find your next challenge."
     },
     "speakers": {
       "eyebrow": "SPEAKERS & PANEL",
       "title": "MEET THE PEOPLE MOVING IDEAS.",
-      "description": "Meet the operators, speakers and future collaborators bringing their perspectives to Trade Winds.",
+      "description": "Meet the operators, speakers and future collaborators bringing their perspectives to TradeWinds.",
       "notice": "Aarav Mehta is the speaker currently named on the published homepage. Further speaker profiles and session details have not been announced."
     },
     "clubs": {
       "eyebrow": "PARTICIPATING CLUBS",
       "title": "FIND YOUR PEOPLE.",
-      "description": "Explore the clubs and societies participating in Trade Winds."
+      "description": "Explore the clubs and societies participating in TradeWinds."
     },
     "calendar": {
       "eyebrow": "SCHEDULE",
       "title": "YOUR NEXT THREE DAYS.",
-      "description": "The schedule preview published on the Trade Winds homepage."
+      "description": "The schedule preview published on the TradeWinds homepage."
     }
   }
 }

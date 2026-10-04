@@ -1,27 +1,26 @@
 [
   {
-    "id": "title",
-    "tier": "TITLE SPONSOR",
-    "names": [
-      "ORBIT CAPITAL"
-    ]
+    "id": "trezix",
+    "name": "Trezix",
+    "role": "Official Title Sponsor",
+    "logo": "/media/sponsor_trezix.png"
   },
   {
-    "id": "gold",
-    "tier": "GOLD",
-    "names": [
-      "AURORA",
-      "GRIDLINE",
-      "VANTAGE"
-    ]
+    "id": "ace-pipeline",
+    "name": "Ace Pipeline Contracts Pvt Ltd",
+    "role": "Associate Sponsor",
+    "logo": "/media/sponsor_ace_transparent.png"
   },
   {
-    "id": "silver",
-    "tier": "SILVER",
-    "names": [
-      "NORTHSTAR",
-      "KITE",
-      "ATLAS"
-    ]
+    "id": "kotak",
+    "name": "Kotak Mahindra Bank",
+    "role": "Official Partner",
+    "logo": "/media/sponsor_kotak_cropped.png"
+  },
+  {
+    "id": "central-bank",
+    "name": "Central Bank Of India",
+    "role": "Official Banking Partner",
+    "logo": "/media/sponsor_CBI_logo.png"
   }
 ]

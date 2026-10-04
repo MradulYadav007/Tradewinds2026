@@ -111,7 +111,7 @@ export default function HomePage() {
                     textLength="1120"
                     lengthAdjust="spacingAndGlyphs"
                   >
-                    TRADE WINDS
+                    TRADEWINDS'26
                   </text>
                 </mask>
               </defs>
@@ -393,13 +393,21 @@ export default function HomePage() {
 
           <div className="sponsor-marquee" aria-label="Sponsor partners">
             <div className="sponsor-marquee-track">
-              {[...Array(14)].map((_, index) => (
-                <img
-                  key={`sponsor-${index}`}
-                  className="sponsor-marquee-logo"
-                  src="/media/sponsor.jpg"
-                  alt="Sponsor"
-                />
+              {[...sponsors, ...sponsors].map((sponsor, index) => (
+                <div
+                  key={`${sponsor.id}-${index}`}
+                  className={`sponsor-marquee-item${sponsor.id === 'trezix' ? ' sponsor-marquee-item-title' : ''}${sponsor.id === 'kotak' ? ' sponsor-marquee-item-kotak' : ''}${sponsor.id === 'central-bank' ? ' sponsor-marquee-item-cbi' : ''}`}
+                >
+                  <img
+                    className="sponsor-marquee-logo"
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                  />
+                  <div className="sponsor-marquee-meta">
+                    <span className="sponsor-marquee-name">{sponsor.name}</span>
+                    {sponsor.role && <span className="sponsor-marquee-role">{sponsor.role}</span>}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

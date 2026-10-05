@@ -94,7 +94,7 @@ See [Vercel's Vite documentation](https://vercel.com/docs/frameworks/frontend/vi
 
 ## Live scoreboard
 
-`/scoreboard` is the public scoreboard (3 slots × 6 teams, one winner per slot). It refreshes every 10 seconds. `/scoreboard/admin` is the organizer editor: it is hidden from search engines and needs a password to save.
+`/scoreboard` is the public scoreboard (3 slots × 6 teams, 5 rounds each, one winner per slot). It refreshes every 10 seconds. `/scoreboard/admin` is the organizer editor: it is hidden from search engines and needs a password to save.
 
 There is no server to run. A Vercel Function (`api/scoreboard.ts`) reads and writes one record in a free Upstash Redis database:
 

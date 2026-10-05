@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { defaultScoreboard, parseScoreboard, rankTeams } from '../src/lib/scoreboard';
-import { GET, PUT, isAuthorized } from '../api/scoreboard';
+import type { Team } from '../src/lib/scoreboard';
+import { GET, PUT, databaseConfig, isAuthorized } from '../api/scoreboard';
 
 const withAuth = (password: string, init: RequestInit = {}) => new Request('https://example.com/api/scoreboard', { ...init, headers: { ...init.headers, Authorization: `Bearer ${password}` } });
 
@@ -18,7 +19,8 @@ describe('scoreboard data', () => {
   });
   it.each([
     ['an empty team name', (b: ReturnType<typeof defaultScoreboard>) => { b.slots[0].teams[0].name = ' '; }],
-    ['a non-numeric score', (b: ReturnType<typeof defaultScoreboard>) => { (b.slots[1].teams[2] as { score: unknown }).score = 'ten'; }],
+    ['a non-numeric round score', (b: ReturnType<typeof defaultScoreboard>) => { (b.slots[1].teams[2].rounds as unknown[])[0] = 'ten'; }],
+    ['too many rounds', (b: ReturnType<typeof defaultScoreboard>) => { b.slots[1].teams[2].rounds.push(1); }],
     ['a winner from another slot', (b: ReturnType<typeof defaultScoreboard>) => { b.slots[0].winnerId = b.slots[1].teams[0].id; }],
     ['a missing team', (b: ReturnType<typeof defaultScoreboard>) => { b.slots[2].teams.pop(); }],
   ])('rejects %s', (_, corrupt) => {
@@ -26,7 +28,23 @@ describe('scoreboard data', () => {
     corrupt(board);
     expect(() => parseScoreboard(board)).toThrow();
   });
-  it('ranks by score, highest first', () => expect(rankTeams([{ id: 'a', name: 'A', score: 2 }, { id: 'b', name: 'B', score: 9 }]).map(team => team.id)).toEqual(['b', 'a']));
+  it('starts with the real team names', () => expect(defaultScoreboard().slots.map(slot => slot.teams[0].name)).toEqual(['Rock n Roll', 'Generally Sober', 'Trade Winds']));
+  it('totals rounds, ranks highest first and shares tied ranks', () => {
+    const team = (id: string, rounds: (number | null)[]): Team => ({ id, name: id, rounds });
+    expect(rankTeams([team('a', [2, null]), team('b', [4, 5]), team('c', [9, null]), team('d', [1, 1])]).map(({ team, total, rank }) => [team.id, total, rank]))
+      .toEqual([['b', 9, 1], ['c', 9, 1], ['a', 2, 3], ['d', 2, 3]]);
+  });
+  it('reads data saved with a single score as round 1', () => {
+    const old = defaultScoreboard() as unknown as { slots: { teams: Record<string, unknown>[] }[] };
+    for (const slot of old.slots) for (const team of slot.teams) { delete team.rounds; team.score = 4; }
+    expect(parseScoreboard(old).slots[0].teams[0].rounds).toEqual([4, null, null, null, null]);
+  });
+});
+
+describe('scoreboard database settings', () => {
+  it('uses the standard Vercel variable names', () => expect(databaseConfig({ KV_REST_API_URL: 'https://a', KV_REST_API_TOKEN: 't' })).toEqual({ url: 'https://a', token: 't' }));
+  it('finds variables added with a custom prefix', () => expect(databaseConfig({ STORAGE_KV_REST_API_URL: 'https://b', STORAGE_KV_REST_API_TOKEN: 'u' })).toEqual({ url: 'https://b', token: 'u' }));
+  it('names what it found when credentials are incomplete', () => expect(() => databaseConfig({ REDIS_URL: 'redis://x' })).toThrow('Found only: REDIS_URL'));
 });
 
 describe('scoreboard API auth', () => {

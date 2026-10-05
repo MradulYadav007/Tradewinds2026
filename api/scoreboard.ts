@@ -13,10 +13,21 @@ function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 }
 
+/** Finds the Upstash REST credentials, including ones Vercel added with a custom prefix (e.g. STORAGE_KV_REST_API_URL). */
+export function databaseConfig(env: Record<string, string | undefined> = process.env): { url: string; token: string } {
+  for (const [urlSuffix, tokenSuffix] of [['KV_REST_API_URL', 'KV_REST_API_TOKEN'], ['UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']]) {
+    for (const name of Object.keys(env).filter(key => key.endsWith(urlSuffix)).sort((a, b) => a.length - b.length)) {
+      const url = env[name];
+      const token = env[name.slice(0, -urlSuffix.length) + tokenSuffix];
+      if (url && token) return { url, token };
+    }
+  }
+  const related = Object.keys(env).filter(key => /KV_|REDIS|UPSTASH/.test(key)).sort();
+  throw new Error(`Scoreboard database is not configured: KV_REST_API_URL and KV_REST_API_TOKEN are missing in this deployment. ${related.length ? `Found only: ${related.join(', ')}.` : 'No database variables were found; connect the Upstash database to this project for this environment and redeploy.'}`);
+}
+
 async function redis(command: (string | number)[]): Promise<unknown> {
-  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) throw new Error('Scoreboard database is not configured');
+  const { url, token } = databaseConfig();
   const response = await fetch(url, { method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: JSON.stringify(command) });
   if (!response.ok) throw new Error(`Database request failed (${response.status})`);
   return ((await response.json()) as { result: unknown }).result;

@@ -142,3 +142,40 @@
   .text-link { @apply text-sm font-semibold tracking-wide uppercase underline-offset-4 hover:underline; }
   .input-field { @apply min-h-12 w-full min-w-0 rounded-button border border-line bg-canvas px-3 py-3 text-base font-normal text-ink; }
 }
+
+/* "The Trade Times" scoreboard: newspaper-style standings on the public /scoreboard page. */
+.trade-times__masthead { text-align: center; margin-bottom: 2.5rem; }
+.trade-times__name { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-weight: 900; font-size: clamp(2.25rem, 7vw, 4.5rem); line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; color: #3b3024; border-block: 3px double #3b3024; padding-block: 0.75rem; margin-top: 0.75rem; }
+.trade-times__status { margin-top: 0.75rem; font-size: 0.875rem; color: #b4483c; min-height: 1.25rem; }
+.trade-times {
+  --tt-frame: #3d3226; --tt-paper: #7a6a4c; --tt-ink: #f3e9d2; --tt-faded: #cdb990; --tt-rank: #ef6f61;
+  background: radial-gradient(circle at 20% 10%, rgb(255 255 255 / 0.04), transparent 40%), var(--tt-frame);
+  color: var(--tt-ink); font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  padding: 1.5rem 1rem 1.25rem; clip-path: polygon(0% 3px, 2% 2px, 4% 5px, 6% 4px, 8% 0px, 10% 0px, 12% 1px, 14% 6px, 16% 0px, 18% 3px, 20% 6px, 22% 0px, 24% 6px, 26% 2px, 28% 0px, 30% 0px, 32% 5px, 34% 5px, 36% 0px, 38% 2px, 40% 0px, 42% 6px, 44% 5px, 46% 0px, 48% 1px, 50% 6px, 52% 0px, 54% 2px, 56% 4px, 58% 4px, 60% 6px, 62% 0px, 64% 6px, 66% 6px, 68% 5px, 70% 0px, 72% 2px, 74% 0px, 76% 6px, 78% 1px, 80% 2px, 82% 3px, 84% 5px, 86% 2px, 88% 6px, 90% 0px, 92% 6px, 94% 3px, 96% 6px, 98% 1px, 100% 4px, 100% calc(100% - 2px), 98% calc(100% - 0px), 96% calc(100% - 6px), 94% calc(100% - 6px), 92% calc(100% - 4px), 90% calc(100% - 2px), 88% calc(100% - 3px), 86% calc(100% - 0px), 84% calc(100% - 6px), 82% calc(100% - 4px), 80% calc(100% - 0px), 78% calc(100% - 6px), 76% calc(100% - 0px), 74% calc(100% - 6px), 72% calc(100% - 2px), 70% calc(100% - 5px), 68% calc(100% - 4px), 66% calc(100% - 6px), 64% calc(100% - 5px), 62% calc(100% - 1px), 60% calc(100% - 3px), 58% calc(100% - 5px), 56% calc(100% - 6px), 54% calc(100% - 5px), 52% calc(100% - 3px), 50% calc(100% - 3px), 48% calc(100% - 2px), 46% calc(100% - 1px), 44% calc(100% - 2px), 42% calc(100% - 4px), 40% calc(100% - 1px), 38% calc(100% - 2px), 36% calc(100% - 0px), 34% calc(100% - 6px), 32% calc(100% - 3px), 30% calc(100% - 6px), 28% calc(100% - 5px), 26% calc(100% - 3px), 24% calc(100% - 4px), 22% calc(100% - 5px), 20% calc(100% - 3px), 18% calc(100% - 6px), 16% calc(100% - 0px), 14% calc(100% - 0px), 12% calc(100% - 6px), 10% calc(100% - 5px), 8% calc(100% - 2px), 6% calc(100% - 1px), 4% calc(100% - 3px), 2% calc(100% - 2px), 0% calc(100% - 5px));
+}
+.trade-times .trade-times__kicker, .trade-times__masthead .trade-times__kicker { font-family: Georgia, "Times New Roman", serif; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.trade-times .trade-times__kicker { color: var(--tt-faded); }
+.trade-times__masthead .trade-times__kicker { color: #6b5a40; }
+.trade-times__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.25rem 0.75rem 0.85rem; border-bottom: 4px double var(--tt-ink); }
+.trade-times__title { font-weight: 800; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; }
+.trade-times__winner { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; padding: 0.9rem 0.75rem; border-bottom: 1px solid rgb(243 233 210 / 0.35); }
+.trade-times__winner strong { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 900; }
+.trade-times__table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.trade-times__table thead th { font-family: Georgia, "Times New Roman", serif; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tt-faded); padding: 1rem 0.35rem; border-bottom: 2px solid var(--tt-ink); }
+.trade-times__table tbody { background: var(--tt-paper); }
+.trade-times__table tbody tr + tr { border-top: 1px dashed rgb(30 22 14 / 0.45); }
+.trade-times__table tbody tr.is-winner { background: rgb(243 233 210 / 0.14); }
+.trade-times__table td, .trade-times__table tbody th { padding: 0.85rem 0.35rem; vertical-align: middle; }
+.trade-times__table td:first-child, .trade-times__table th:first-child { width: 3.5rem; text-align: center; }
+.trade-times__rank { display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 9999px; background: rgb(243 233 210 / 0.2); font-weight: 800; font-size: 1.15rem; }
+.trade-times__rank.is-top { background: var(--tt-rank); }
+.trade-times__team { text-align: left; font-weight: 800; font-size: clamp(1rem, 2.6vw, 1.25rem); overflow-wrap: anywhere; }
+.trade-times__round { width: 3.1rem; text-align: center; color: var(--tt-faded); font-size: 1rem; }
+.trade-times__total { width: 4rem; text-align: right; padding-right: 0.75rem !important; font-weight: 900; font-size: clamp(1.4rem, 4vw, 1.75rem); }
+@media (max-width: 640px) {
+  .trade-times { padding-inline: 0.5rem; }
+  .trade-times__table td:first-child, .trade-times__table th:first-child { width: 2.4rem; }
+  .trade-times__rank { width: 1.9rem; height: 1.9rem; font-size: 0.95rem; }
+  .trade-times__round { width: 1.9rem; font-size: 0.85rem; padding-inline: 0.1rem !important; }
+  .trade-times__total { width: 2.75rem; padding-right: 0.4rem !important; }
+}

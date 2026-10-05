@@ -1,43 +1,54 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { PageHeading } from '../components/Layout';
-import { parseScoreboard, rankTeams, type Scoreboard, type Slot } from '../lib/scoreboard';
+import { ROUND_COUNT, parseScoreboard, rankTeams, totalScore, type Scoreboard, type Slot } from '../lib/scoreboard';
 
 const API = '/api/scoreboard';
 const REFRESH_MS = 10_000;
 const PASSWORD_KEY = 'scoreboard-admin-password';
+const ROUND_LABELS = Array.from({ length: ROUND_COUNT }, (_, r) => `R${r + 1}`);
+const FONT_URL = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap';
 
 async function fetchScoreboard(): Promise<Scoreboard> {
   const response = await fetch(API, { cache: 'no-store' });
-  if (!response.ok) throw new Error(`Request failed (${response.status})`);
-  return parseScoreboard(await response.json());
+  const body = await response.json().catch(() => null);
+  if (!response.ok) throw new Error(body?.error || `Request failed (${response.status})`);
+  return parseScoreboard(body);
 }
 
 function updatedLabel(updatedAt: string | null) {
   return updatedAt ? `Last updated ${new Date(updatedAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}` : 'No scores published yet';
 }
 
-function SlotCard({ slot }: { slot: Slot }) {
-  const ranked = rankTeams(slot.teams);
+function SlotStandings({ slot }: { slot: Slot }) {
   const winner = slot.teams.find(team => team.id === slot.winnerId);
-  return <section aria-labelledby={`${slot.id}-title`} className="flex flex-col border border-line bg-surface">
-    <div className="flex items-center justify-between gap-4 border-b border-line p-5">
-      <h2 id={`${slot.id}-title`} className="font-display text-3xl font-black uppercase">{slot.title}</h2>
-      <span className={`rounded-button px-2 py-1 text-xs font-semibold tracking-widest uppercase ${winner ? 'bg-brand text-on-brand' : 'border border-brand text-brand'}`}>{winner ? 'Final' : 'Live'}</span>
+  return <section aria-labelledby={`${slot.id}-title`} className="trade-times">
+    <div className="trade-times__head">
+      <h2 id={`${slot.id}-title`} className="trade-times__title">{slot.title}</h2>
+      <span className="trade-times__kicker">{winner ? 'Final standings' : 'Standings'}</span>
     </div>
-    {winner && <p className="border-b border-line bg-ink p-5 text-on-brand"><span className="eyebrow block">Winner</span><span className="mt-2 block font-display text-4xl font-black uppercase">🏆 {winner.name}</span></p>}
-    <ol className="divide-y divide-line">
-      {ranked.map((team, index) => <li key={team.id} className={`flex items-center gap-4 px-5 py-4 ${team.id === slot.winnerId ? 'bg-brand/15' : ''}`}>
-        <span className="w-6 font-display text-2xl font-black text-muted">{index + 1}</span>
-        <span className="flex-1 text-base font-semibold break-words">{team.name}</span>
-        <span className="font-display text-3xl font-black tabular-nums">{team.score}</span>
-      </li>)}
-    </ol>
+    {winner && <p className="trade-times__winner"><span className="trade-times__kicker">Winner</span> <strong>{winner.name}</strong></p>}
+    <table className="trade-times__table">
+      <thead><tr><th scope="col">#</th><th scope="col" className="text-left">Team</th>{ROUND_LABELS.map(label => <th key={label} scope="col" className="trade-times__round">{label}</th>)}<th scope="col" className="text-right">Total</th></tr></thead>
+      <tbody>
+        {rankTeams(slot.teams).map(({ team, total, rank }) => <tr key={team.id} className={team.id === slot.winnerId ? 'is-winner' : undefined}>
+          <td><span className={`trade-times__rank ${rank === 1 ? 'is-top' : ''}`}>{rank}</span></td>
+          <th scope="row" className="trade-times__team">{team.name}</th>
+          {team.rounds.map((score, r) => <td key={r} className="trade-times__round">{score ?? '–'}</td>)}
+          <td className="trade-times__total">{total}</td>
+        </tr>)}
+      </tbody>
+    </table>
   </section>;
 }
 
 export function ScoreboardPage() {
   const [board, setBoard] = useState<Scoreboard | null>(null);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Load the newspaper font without holding up the scores; Georgia stands in until it arrives.
+    if (!document.querySelector(`link[href="${FONT_URL}"]`)) document.head.append(Object.assign(document.createElement('link'), { rel: 'stylesheet', href: FONT_URL }));
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -57,9 +68,14 @@ export function ScoreboardPage() {
   }, []);
 
   return <div className="page-shell section-space">
-    <PageHeading eyebrow="LIVE RESULTS" title={board?.title || 'Live Scoreboard'} description="18 teams, three slots of six. The top team in each slot takes the win. Scores refresh automatically." />
-    <p role="status" className="mb-6 text-sm text-muted">{error || (board ? updatedLabel(board.updatedAt) : 'Loading scores…')}</p>
-    {board && <div className="grid gap-6 lg:grid-cols-3">{board.slots.map(slot => <SlotCard key={slot.id} slot={slot} />)}</div>}
+    <div className="mx-auto max-w-5xl">
+      <div className="trade-times__masthead">
+        <p className="trade-times__kicker">Live results · {board ? updatedLabel(board.updatedAt) : 'Loading scores…'}</p>
+        <h1 className="trade-times__name">{board?.title || 'The Trade Times'}</h1>
+        <p role="status" className="trade-times__status">{error}</p>
+      </div>
+      {board && <div className="grid gap-10">{board.slots.map(slot => <SlotStandings key={slot.id} slot={slot} />)}</div>}
+    </div>
   </div>;
 }
 
@@ -142,7 +158,7 @@ export function ScoreboardAdminPage() {
   }
 
   return <div className="page-shell section-space">
-    <PageHeading eyebrow="ORGANIZERS ONLY" title="Edit Scoreboard" description="Change names, scores, and winners, then publish. The public scoreboard picks up changes within about 10 seconds." />
+    <PageHeading eyebrow="ORGANIZERS ONLY" title="Edit Scoreboard" description="Enter round scores (leave a round blank until it is played), pick winners, then publish. The public scoreboard picks up changes within about 10 seconds." />
     <div className="sticky top-0 z-10 mb-8 flex flex-wrap items-center gap-3 border-b border-line bg-canvas py-4">
       <button type="button" className="button-primary" onClick={save} disabled={busy || !dirty || !board}>Save &amp; publish</button>
       <button type="button" className="rounded-button border border-line px-4 py-3 text-sm font-semibold" onClick={reload} disabled={busy}>Reload latest</button>
@@ -157,11 +173,14 @@ export function ScoreboardAdminPage() {
           <label className="mb-4 grid gap-2 text-sm font-semibold">Slot name<input className="input-field" value={slot.title} maxLength={60} onChange={event => edit(draft => { draft.slots[s].title = event.target.value; })} /></label>
           <div className="grid gap-4">
             {slot.teams.map((team, t) => <div key={team.id} className="grid gap-2 border-t border-line pt-4">
-              <input className="input-field" aria-label={`Team ${t + 1} name`} value={team.name} maxLength={60} onChange={event => edit(draft => { draft.slots[s].teams[t].name = event.target.value; })} />
-              <div className="flex items-center gap-2">
-                <button type="button" className="size-12 shrink-0 rounded-button border border-line text-xl font-bold" aria-label={`Decrease ${team.name} score`} onClick={() => edit(draft => { draft.slots[s].teams[t].score -= 1; })}>−</button>
-                <input className="input-field text-center tabular-nums" type="number" inputMode="numeric" aria-label={`${team.name} score`} value={team.score} onChange={event => edit(draft => { draft.slots[s].teams[t].score = Number(event.target.value) || 0; })} />
-                <button type="button" className="size-12 shrink-0 rounded-button border border-line text-xl font-bold" aria-label={`Increase ${team.name} score`} onClick={() => edit(draft => { draft.slots[s].teams[t].score += 1; })}>+</button>
+              <div className="flex items-center gap-3">
+                <input className="input-field" aria-label={`Team ${t + 1} name`} value={team.name} maxLength={60} onChange={event => edit(draft => { draft.slots[s].teams[t].name = event.target.value; })} />
+                <span className="shrink-0 text-sm text-muted">Total <strong className="font-display text-2xl text-ink tabular-nums">{totalScore(team)}</strong></span>
+              </div>
+              <div className="grid grid-cols-5 gap-2">
+                {team.rounds.map((score, r) => <label key={r} className="grid gap-1 text-center text-xs font-semibold text-muted">{ROUND_LABELS[r]}
+                  <input className="input-field px-1 text-center tabular-nums" type="number" inputMode="decimal" aria-label={`${team.name} round ${r + 1}`} value={score ?? ''} onChange={event => edit(draft => { draft.slots[s].teams[t].rounds[r] = event.target.value === '' ? null : Number(event.target.value); })} />
+                </label>)}
               </div>
               <label className="flex items-center gap-2 text-sm"><input type="radio" name={`${slot.id}-winner`} checked={slot.winnerId === team.id} onChange={() => edit(draft => { draft.slots[s].winnerId = team.id; })} />Winner of this slot</label>
             </div>)}

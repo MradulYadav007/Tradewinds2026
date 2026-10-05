@@ -102,7 +102,7 @@ There is no server to run. A Vercel Function (`api/scoreboard.ts`) reads and wri
 2. In **Settings → Environment Variables**, add `SCOREBOARD_ADMIN_PASSWORD` with a long password. Share it only with organizers.
 3. Redeploy. Open `/scoreboard/admin`, log in, edit team names and scores, choose winners, and press **Save & publish**.
 
-`npm run dev` does not run the `/api` function. Use `vercel dev` to try the editor locally. If two organizers save at the same time, the later save wins, so have one person publish at a time.
+To use the scoreboard locally, copy the variables into `.env.local` (`vercel env pull .env.local` does this), then run `npm run dev`; the dev server runs `/api/scoreboard` for you. If two organizers save at the same time, the later save wins, so have one person publish at a time.
 
 ## Media and CDN
 

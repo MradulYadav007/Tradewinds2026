@@ -5,7 +5,8 @@ import App from './App';
 import './styles/theme.css';
 
 const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
-if (navigationEntry?.type === 'reload' && window.location.pathname !== '/') {
+// The live scoreboard and its editor are meant to be refreshed in place.
+if (navigationEntry?.type === 'reload' && window.location.pathname !== '/' && !window.location.pathname.startsWith('/scoreboard')) {
   window.location.replace('/');
 }
 

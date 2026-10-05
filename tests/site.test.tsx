@@ -40,3 +40,8 @@ describe('registration countdown', () => {
   it('expires without displaying negative time', () => expect(remainingTime('2026-09-10T00:00:00+05:30', Date.parse('2026-09-11T00:00:00+05:30'))).toBeNull());
   it('honors the configured timezone', () => expect(remainingTime('2026-09-10T00:00:00+05:30', Date.parse('2026-09-09T18:29:00Z'))).toBe('00 : 00 : 01 : 00'));
 });
+
+describe('scoreboard pages', () => {
+  it('keeps the organizer editor out of search engines', () => expect(routes.find(route => route.path === '/scoreboard/admin')?.noindex).toBe(true));
+  it('renders the editor behind a password form', () => expect(render('/scoreboard/admin')).toContain('type="password"'));
+});

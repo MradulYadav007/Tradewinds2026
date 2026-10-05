@@ -26,7 +26,7 @@ The production website is generated in `dist/`. Do not edit that directory: edit
 src/
   content/             JSON files for copy, events, speakers, clubs, and schedules
   components/          Shared header, footer, cards, countdown, media renderer
-  pages/               Home, content pages, registration
+  pages/               Home, content pages, registration, scoreboard
   styles/theme.css     Tailwind colour, typography, and radius tokens
   assets/              Fonts bundled with content hashes
   lib/                 CDN URL resolution, content checks, draft generation
@@ -34,6 +34,7 @@ src/
   App.tsx              React route definitions
   main.tsx             Browser entry
   entry-server.tsx     Build-time rendering only; no production server
+api/scoreboard.ts      Vercel Function that stores scoreboard data
 public/media/          Images and videos served by your deployment's CDN
 scripts/prerender.mjs   Generates HTML pages, robots.txt, and optional sitemap
 tests/                 Content, rendering, media, and countdown checks
@@ -90,6 +91,18 @@ The included GitHub Actions workflow runs tests, TypeScript checks, and a produc
 Each known route has its own HTML file, so directly opening or refreshing `/viewallevents`, `/registernow`, and the other routes works without a catch-all SPA rewrite. A generated `404.html` handles unknown routes. All backend-free output can also be served by another static host; configure that host to resolve directory index files and use `404.html` for missing pages.
 
 See [Vercel's Vite documentation](https://vercel.com/docs/frameworks/frontend/vite) and [Vite's deployment guide](https://vite.dev/guide/static-deploy.html).
+
+## Live scoreboard
+
+`/scoreboard` is the public scoreboard (3 slots × 6 teams, one winner per slot). It refreshes every 10 seconds. `/scoreboard/admin` is the organizer editor: it is hidden from search engines and needs a password to save.
+
+There is no server to run. A Vercel Function (`api/scoreboard.ts`) reads and writes one record in a free Upstash Redis database:
+
+1. In Vercel, open the project → **Storage** → **Create Database** → **Upstash for Redis** (free plan), and connect it to this project. This adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` automatically.
+2. In **Settings → Environment Variables**, add `SCOREBOARD_ADMIN_PASSWORD` with a long password. Share it only with organizers.
+3. Redeploy. Open `/scoreboard/admin`, log in, edit team names and scores, choose winners, and press **Save & publish**.
+
+`npm run dev` does not run the `/api` function. Use `vercel dev` to try the editor locally. If two organizers save at the same time, the later save wins, so have one person publish at a time.
 
 ## Media and CDN
 

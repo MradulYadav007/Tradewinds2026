@@ -57,6 +57,10 @@
       "href": "/viewallspeakers"
     },
     {
+      "label": "SCOREBOARD",
+      "href": "/scoreboard"
+    },
+    {
       "label": "SPONSORS",
       "href": "/#sponsors"
     }

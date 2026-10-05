@@ -5,6 +5,7 @@ import IntroAnimation from './components/IntroAnimation';
 import HomePage from './pages/HomePage';
 import { EventsPage, SpeakersPage, ClubsPage, CalendarPage, NotFoundPage } from './pages/ContentPages';
 import RegisterPage from './pages/RegisterPage';
+import { ScoreboardPage, ScoreboardAdminPage } from './pages/ScoreboardPage';
 import { routes } from './routes';
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
     <RouteEffects />
     <Header />
     <main id="main-content" tabIndex={-1} className="min-h-[65vh] outline-none">
-      <Routes><Route path="/" element={<HomePage />} /><Route path="/viewallevents" element={<EventsPage />} /><Route path="/viewallspeakers" element={<SpeakersPage />} /><Route path="/viewallclubs" element={<ClubsPage />} /><Route path="/calendar" element={<CalendarPage />} /><Route path="/registernow" element={<RegisterPage />} /><Route path="*" element={<NotFoundPage />} /></Routes>
+      <Routes><Route path="/" element={<HomePage />} /><Route path="/viewallevents" element={<EventsPage />} /><Route path="/viewallspeakers" element={<SpeakersPage />} /><Route path="/viewallclubs" element={<ClubsPage />} /><Route path="/calendar" element={<CalendarPage />} /><Route path="/registernow" element={<RegisterPage />} /><Route path="/scoreboard" element={<ScoreboardPage />} /><Route path="/scoreboard/admin" element={<ScoreboardAdminPage />} /><Route path="*" element={<NotFoundPage />} /></Routes>
     </main>
     <Footer />
   </>;

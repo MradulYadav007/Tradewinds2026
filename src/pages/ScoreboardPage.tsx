@@ -91,7 +91,7 @@ export function ScoreboardAdminPage() {
     setBusy(true); setStatus('');
     try {
       const response = await fetch(`${API}?auth=1`, { headers: { Authorization: `Bearer ${candidate}` }, cache: 'no-store' });
-      if (!response.ok) throw new Error(response.status === 401 ? 'Wrong password.' : `Login failed (${response.status}).`);
+      if (!response.ok) throw new Error(response.status === 401 ? 'Wrong password.' : (await response.json().catch(() => null))?.error || `Login failed (${response.status}).`);
       try { sessionStorage.setItem(PASSWORD_KEY, candidate); } catch { /* private mode: stay logged in for this page only */ }
       setPassword(candidate); setAuthed(true);
       setBoard(await fetchScoreboard()); setDirty(false);

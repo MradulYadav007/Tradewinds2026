@@ -13,8 +13,34 @@ function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 }
 
+type Env = Record<string, string | undefined>;
+const PASSWORD_VAR = 'SCOREBOARD_ADMIN_PASSWORD';
+
+/** Where this code runs, and which settings it can see (only whether they are set, never their values). */
+export function settingsReport(env: Env = process.env) {
+  let database = 'missing';
+  try { databaseConfig(env); database = 'set'; } catch { /* reported as missing */ }
+  const runningOn = env.VERCEL
+    ? `Vercel ${env.VERCEL_ENV || ''} deployment${env.VERCEL_GIT_COMMIT_REF ? ` of branch ${env.VERCEL_GIT_COMMIT_REF}` : ''}`.replace('  ', ' ')
+    : `local dev server, reading settings from ${env.SCOREBOARD_ENV_DIR || 'the project folder'}`;
+  const otherDatabaseVariables = Object.keys(env).filter(key => /KV_|REDIS|UPSTASH/.test(key)).sort();
+  return { runningOn, [PASSWORD_VAR]: env[PASSWORD_VAR] ? 'set' : 'missing', 'KV_REST_API_URL + KV_REST_API_TOKEN': database, ...(database === 'missing' && otherDatabaseVariables.length ? { otherDatabaseVariables } : {}) };
+}
+
+function fixHint(env: Env): string {
+  if (env.VERCEL) {
+    const environment = env.VERCEL_ENV === 'production' ? 'Production' : env.VERCEL_ENV === 'preview' ? 'Preview' : 'Development';
+    return `Fix: in Vercel, open this same project → Settings → Environment Variables, make sure each variable is enabled for "${environment}", then Deployments → ⋯ → Redeploy.`;
+  }
+  return `Fix: put the variables in a file named exactly ".env.local" (not ".env.local.txt") in ${env.SCOREBOARD_ENV_DIR || 'the folder that contains package.json'}, then stop and restart npm run dev.`;
+}
+
+function notConfigured(what: string, env: Env = process.env): Response {
+  return json({ error: `${what} is not set for this ${settingsReport(env).runningOn}. ${fixHint(env)}`, settings: settingsReport(env) }, 500);
+}
+
 /** Finds the Upstash REST credentials, including ones Vercel added with a custom prefix (e.g. STORAGE_KV_REST_API_URL). */
-export function databaseConfig(env: Record<string, string | undefined> = process.env): { url: string; token: string } {
+export function databaseConfig(env: Env = process.env): { url: string; token: string } {
   for (const [urlSuffix, tokenSuffix] of [['KV_REST_API_URL', 'KV_REST_API_TOKEN'], ['UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']]) {
     for (const name of Object.keys(env).filter(key => key.endsWith(urlSuffix)).sort((a, b) => a.length - b.length)) {
       const url = env[name];
@@ -23,7 +49,7 @@ export function databaseConfig(env: Record<string, string | undefined> = process
     }
   }
   const related = Object.keys(env).filter(key => /KV_|REDIS|UPSTASH/.test(key)).sort();
-  throw new Error(`Scoreboard database is not configured: KV_REST_API_URL and KV_REST_API_TOKEN are missing in this deployment. ${related.length ? `Found only: ${related.join(', ')}.` : 'No database variables were found; connect the Upstash database to this project for this environment and redeploy.'}`);
+  throw new Error(`Scoreboard database is not configured: KV_REST_API_URL and KV_REST_API_TOKEN are missing. ${related.length ? `Found only: ${related.join(', ')}.` : 'No database variables were found.'}`);
 }
 
 async function redis(command: (string | number)[]): Promise<unknown> {
@@ -33,7 +59,7 @@ async function redis(command: (string | number)[]): Promise<unknown> {
   return ((await response.json()) as { result: unknown }).result;
 }
 
-export function isAuthorized(request: Request, password = process.env.SCOREBOARD_ADMIN_PASSWORD): boolean {
+export function isAuthorized(request: Request, password = process.env[PASSWORD_VAR]): boolean {
   const supplied = request.headers.get('authorization')?.replace(/^Bearer\s+/i, '') || '';
   if (!password || !supplied) return false;
   const digest = (value: string) => createHash('sha256').update(value).digest();
@@ -41,7 +67,13 @@ export function isAuthorized(request: Request, password = process.env.SCOREBOARD
 }
 
 export async function GET(request: Request): Promise<Response> {
-  if (new URL(request.url).searchParams.has('auth')) return isAuthorized(request) ? json({ ok: true }) : json({ error: 'Wrong password' }, 401);
+  const params = new URL(request.url).searchParams;
+  if (params.has('check')) return json(settingsReport());
+  if (params.has('auth')) {
+    if (!process.env[PASSWORD_VAR]) return notConfigured(`The organizer password (${PASSWORD_VAR})`);
+    return isAuthorized(request) ? json({ ok: true }) : json({ error: 'Wrong password' }, 401);
+  }
+  try { databaseConfig(); } catch { return notConfigured('The scoreboard database (KV_REST_API_URL and KV_REST_API_TOKEN)'); }
   try {
     const stored = await redis(['GET', KEY]);
     return json(typeof stored === 'string' ? parseScoreboard(JSON.parse(stored)) : defaultScoreboard());
@@ -51,6 +83,7 @@ export async function GET(request: Request): Promise<Response> {
 }
 
 export async function PUT(request: Request): Promise<Response> {
+  if (!process.env[PASSWORD_VAR]) return notConfigured(`The organizer password (${PASSWORD_VAR})`);
   if (!isAuthorized(request)) return json({ error: 'Wrong password' }, 401);
   let scoreboard;
   try {

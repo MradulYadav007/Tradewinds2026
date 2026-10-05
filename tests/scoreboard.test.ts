@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { defaultScoreboard, parseScoreboard, rankTeams } from '../src/lib/scoreboard';
 import type { Team } from '../src/lib/scoreboard';
-import { GET, PUT, databaseConfig, isAuthorized } from '../api/scoreboard';
+import { GET, PUT, databaseConfig, isAuthorized, settingsReport } from '../api/scoreboard';
 
-const withAuth = (password: string, init: RequestInit = {}) => new Request('https://example.com/api/scoreboard', { ...init, headers: { ...init.headers, Authorization: `Bearer ${password}` } });
+const withAuth = (password: string, init: RequestInit = {}, query = '?auth=1') => new Request(`https://example.com/api/scoreboard${query}`, { ...init, headers: { ...init.headers, Authorization: `Bearer ${password}` } });
 
 describe('scoreboard data', () => {
   it('starts with 3 slots of 6 uniquely named teams', () => {
@@ -48,14 +48,32 @@ describe('scoreboard database settings', () => {
 });
 
 describe('scoreboard API auth', () => {
+  beforeEach(() => { process.env.SCOREBOARD_ADMIN_PASSWORD = 'secret'; });
+  afterEach(() => { delete process.env.SCOREBOARD_ADMIN_PASSWORD; });
   it('accepts only the configured password', () => {
     expect(isAuthorized(withAuth('secret'), 'secret')).toBe(true);
     expect(isAuthorized(withAuth('wrong'), 'secret')).toBe(false);
     expect(isAuthorized(withAuth('anything'), undefined)).toBe(false);
   });
   it('refuses edits without the password before touching storage', async () => {
-    const response = await PUT(withAuth('wrong', { method: 'PUT', body: JSON.stringify(defaultScoreboard()) }));
+    const response = await PUT(withAuth('wrong', { method: 'PUT', body: JSON.stringify(defaultScoreboard()) }, ''));
     expect(response.status).toBe(401);
   });
   it('reports a failed login check', async () => expect((await GET(new Request('https://example.com/api/scoreboard?auth=1'))).status).toBe(401));
+});
+
+describe('scoreboard settings report', () => {
+  it('says where it runs and what is missing, without values', () => {
+    const report = settingsReport({ VERCEL: '1', VERCEL_ENV: 'preview', VERCEL_GIT_COMMIT_REF: 'scores', SCOREBOARD_ADMIN_PASSWORD: 'secret' });
+    expect(report).toEqual({ runningOn: 'Vercel preview deployment of branch scores', SCOREBOARD_ADMIN_PASSWORD: 'set', 'KV_REST_API_URL + KV_REST_API_TOKEN': 'missing' });
+    expect(JSON.stringify(report)).not.toContain('secret');
+  });
+  it('explains a missing password instead of calling it wrong', async () => {
+    const saved = process.env.SCOREBOARD_ADMIN_PASSWORD;
+    delete process.env.SCOREBOARD_ADMIN_PASSWORD;
+    const response = await GET(withAuth('anything'));
+    if (saved !== undefined) process.env.SCOREBOARD_ADMIN_PASSWORD = saved;
+    expect(response.status).toBe(500);
+    expect((await response.json()).error).toContain('SCOREBOARD_ADMIN_PASSWORD) is not set');
+  });
 });

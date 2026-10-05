@@ -1,3 +1,4 @@
+import { readdirSync } from 'node:fs';
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
@@ -11,7 +12,12 @@ function localApi(): Plugin {
   return {
     name: 'local-vercel-api',
     configureServer(server) {
-      Object.assign(process.env, loadEnv(server.config.mode, process.cwd(), ''));
+      const envDir = typeof server.config.envDir === 'string' ? server.config.envDir : server.config.root;
+      Object.assign(process.env, loadEnv(server.config.mode, envDir, ''), { SCOREBOARD_ENV_DIR: envDir });
+      const misnamed = readdirSync(envDir).filter(file => /^\.?env/i.test(file) && !/^\.env(\.(development|production|test))?(\.local)?$|^\.env\.example$/.test(file));
+      const status = (name: string) => `${name} ${process.env[name] ? 'set' : 'MISSING'}`;
+      server.config.logger.info(`  Scoreboard settings from ${envDir}: ${['SCOREBOARD_ADMIN_PASSWORD', 'KV_REST_API_URL', 'KV_REST_API_TOKEN'].map(status).join(', ')}`);
+      if (misnamed.length) server.config.logger.warn(`  Rename ${misnamed.join(', ')} to .env.local so the scoreboard can read it.`);
       server.middlewares.use('/api/scoreboard', async (req, res) => {
         try {
           const handlers = await server.ssrLoadModule('/api/scoreboard.ts');

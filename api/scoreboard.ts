@@ -23,8 +23,9 @@ export function settingsReport(env: Env = process.env) {
   const runningOn = env.VERCEL
     ? `Vercel ${env.VERCEL_ENV || ''} deployment${env.VERCEL_GIT_COMMIT_REF ? ` of branch ${env.VERCEL_GIT_COMMIT_REF}` : ''}`.replace('  ', ' ')
     : `local dev server, reading settings from ${env.SCOREBOARD_ENV_DIR || 'the project folder'}`;
+  const envFile = env.VERCEL ? {} : { envFile: env.SCOREBOARD_ENV_FILE || 'unknown (restart npm run dev)' };
   const otherDatabaseVariables = Object.keys(env).filter(key => /KV_|REDIS|UPSTASH/.test(key)).sort();
-  return { runningOn, [PASSWORD_VAR]: env[PASSWORD_VAR] ? 'set' : 'missing', 'KV_REST_API_URL + KV_REST_API_TOKEN': database, ...(database === 'missing' && otherDatabaseVariables.length ? { otherDatabaseVariables } : {}) };
+  return { runningOn, ...envFile, [PASSWORD_VAR]: env[PASSWORD_VAR] ? 'set' : 'missing', 'KV_REST_API_URL + KV_REST_API_TOKEN': database, ...(database === 'missing' && otherDatabaseVariables.length ? { otherDatabaseVariables } : {}) };
 }
 
 function fixHint(env: Env): string {

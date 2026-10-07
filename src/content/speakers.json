@@ -70,6 +70,48 @@
     "club": "BLASH"
   },
   {
+    "id": "dhianu-das",
+    "name": "DHIANU DAS",
+    "role": "Pre-Sales Manager, Trezix",
+    "bio": "",
+    "image": "/media/Capital_S1_Dhianu Das.jpg",
+    "description": "Mr. Dhianu Das is the Pre-Sales Manager at Trezix, where he leads digital transformation strategies to automate and streamline the global trade ecosystem. An alumnus of the Indian Institute of Foreign Trade (IIFT) and the University of Mumbai, he brings nearly two decades of deep domain expertise in international trade, EXIM compliance, customs, and indirect taxation. Beyond his corporate technology leadership at Trezix, he has successfully managed large-scale cross-border operations and regulatory frameworks for prominent Indian conglomerates, having previously served as the Manager of Customs and Foreign Trade at Tata International and Senior Manager of EXIM Compliances at Raymond Limited.",
+    "website": null,
+    "src": "/media/Capital_S1_Dhianu Das.jpg",
+    "type": "image",
+    "alt": "Dhianu Das",
+    "featured": true,
+    "club": "Capital"
+  },
+  {
+    "id": "diptangush-chatterjee",
+    "name": "DIPTANGUSH CHATTERJEE",
+    "role": "Pre-Sales Manager, Trezix",
+    "bio": "",
+    "image": "/media/Capital_S2_Mr. Diptangshu Chatterjee.jpg",
+    "description": "Mr. Diptangush Chatterjee is the Pre-Sales Manager at Trezix, where he leads digital transformation strategies to automate and streamline the global trade ecosystem. An alumnus of the Indian Institute of Foreign Trade (IIFT) and the University of Mumbai, he brings nearly two decades of deep domain expertise in international trade, EXIM compliance, customs, and indirect taxation. Beyond his corporate technology leadership at Trezix, he has successfully managed large-scale cross-border operations and regulatory frameworks for prominent Indian conglomerates, having previously served as the Manager of Customs and Foreign Trade at Tata International and Senior Manager of EXIM Compliances at Raymond Limited.",
+    "website": null,
+    "src": "/media/Capital_S2_Mr. Diptangush Chatterjee.jpg",
+    "type": "image",
+    "alt": "Diptangush Chatterjee",
+    "featured": true,
+    "club": "Capital"
+  },
+  {
+    "id": "amit-goel",
+    "name": "AMIT GOEL",
+    "role": "Pre-Sales Manager, Trezix",
+    "bio": "",
+    "image": "/media/Capital_Amit Goel.jpg",
+    "description": "Mr. Amit Goel is the Pre-Sales Manager at Trezix, where he leads digital transformation strategies to automate and streamline the global trade ecosystem. An alumnus of the Indian Institute of Foreign Trade (IIFT) and the University of Mumbai, he brings nearly two decades of deep domain expertise in international trade, EXIM compliance, customs, and indirect taxation. Beyond his corporate technology leadership at Trezix, he has successfully managed large-scale cross-border operations and regulatory frameworks for prominent Indian conglomerates, having previously served as the Manager of Customs and Foreign Trade at Tata International and Senior Manager of EXIM Compliances at Raymond Limited.",
+    "website": null,
+    "src": "/media/Capital_Amit Goel.jpg",
+    "type": "image",
+    "alt": "Amit Goel",
+    "featured": true,
+    "club": "Capital"
+  },
+  {
     "id": "alekhya-chakrabarty",
     "name": "ALEKHYA CHAKRABARTY",
     "role": "Senior Vice President Marketing, Info Edge India Ltd",
